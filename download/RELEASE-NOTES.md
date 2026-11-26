@@ -1,9 +1,10 @@
-First release of RipscoutBBS, a BBS drawn entirely in RIPscrip 1.54 graphics.
+**RipscoutBBS 1.1.0: the BMX update**
 
-**Download `RipscoutBBS.exe`** below. It's one Windows EXE with nothing to install. Start with the [Sysop Guide](https://github.com/Dialsoft/ripscoutbbs-releases/blob/main/SYSOP-GUIDE.md).
+- **BMX welcome screen:** a 5-spoke mag wheel spins on the horizon (pure palette cycling), with dirt jumps and a neon rider.
+- **BMX Games** on the main menu, played live over telnet in RIPscrip:
+  - *Dirt Jumper* (side-scroller): hop the rocks, cones and hay bales, and press T in the air for a tabletop bonus.
+  - *Cone Blaster* (shooter): ride left and right and squirt the cones and tires.
+  - A top-10 high score table for each game.
+- **Auto-update:** checks this page every 6 hours, verifies each download's SHA-256 checksum, and installs only when nobody is online. You can manage it from Sysop Admin > Updates (Check Now, Install Now, auto-install on/off).
 
-- Telnet BBS, up to 250 callers, with RIPscrip auto-detection
-- Signup wizard with a live name check and a password-strength meter; the first account becomes the Sysop
-- Message boards, Teleconference chat, and the 7-page RIP Showcase
-- Full Sysop Admin in RIP; every setting takes effect live
-- `RipscoutBBS-Explainer.mp4`: a 90-second captioned tour
+Version 1.0.0 doesn't have the updater, so download this one by hand. Future updates install themselves.

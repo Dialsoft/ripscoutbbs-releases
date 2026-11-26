@@ -24,13 +24,18 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 - **Sysop Admin, all in RIP**: users, board settings, message areas, nodes and broadcasts, statistics, news and rules
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
+- **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
+- **BMX Games**: *Dirt Jumper* (side-scroller) and *Cone Blaster* (shooter), with high score tables
+- **Auto-update**: checks this page every 6 hours, verifies each download, and installs only when nobody is online
 
 | | |
 |---|---|
 | ![Signup](screenshots/signup.png) | ![Main menu](screenshots/main-menu.png) |
 | ![Teleconference](screenshots/teleconference.png) | ![Palette magic](screenshots/palette-magic.png) |
 
-![Sysop Admin](screenshots/sysop-admin.png)
+| ![BMX Games](screenshots/bmx-games.png) | ![Dirt Jumper](screenshots/dirt-jumper.png) |
+|---|---|
+| ![Cone Blaster](screenshots/cone-blaster.png) | ![Sysop Admin](screenshots/sysop-admin.png) |
 
 ## Quick start
 

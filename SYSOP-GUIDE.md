@@ -113,20 +113,40 @@ A bar chart of calls per day for the last 14 days, a pie chart of members by lev
 Both open in the full-screen editor: each line is one paragraph, and paragraphs wrap automatically on screen.
 Click **Save** to publish immediately.
 
-## 7. The data folder
+### Updates
+RipscoutBBS keeps itself up to date from its download page on GitHub (`Dialsoft/ripscoutbbs-releases`).
+- It checks every 6 hours (and one minute after it starts).
+- A newer version is downloaded in the background and checked against its published SHA-256 checksum.
+  A download that doesn't match is thrown away and never run.
+- With **Auto-install ON** (the default), the update is installed the next time **nobody is online**.
+  The board restarts itself in the same window within a few seconds, so callers are never dropped.
+- **Install Now** installs right away: everyone online gets a 30-second warning pop-up, then the board restarts.
+- **Check Now** checks immediately. **Auto-install On/Off** switches the automatic install (live, like every setting).
+- During an update, the old EXE is briefly kept as `RipscoutBBS.old.exe` and then deleted automatically.
+
+## 7. BMX Games
+
+From the main menu, **BMX Games** offers two real-time games played right in the terminal:
+- **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
+  The track speeds up the longer you ride. You get 3 lives.
+- **Cone Blaster** (shooter): Left/Right or A/D rides, and SPACE or Up squirts water. Cones are worth 10 and
+  tires 25. Getting hit costs a life.
+- Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game.
+
+## 8. The data folder
 
 | File | Contents |
 |---|---|
 | `config.json` | Board settings |
 | `users.json` | Accounts. Passwords are stored only as salted PBKDF2-SHA256 hashes (210,000 rounds), so nobody (including you) can read them |
 | `boards.json` | Message areas and messages |
-| `stats.json` | Calls per day |
+| `stats.json` | Calls per day and the BMX Games high scores |
 | `RipscoutBBS.log` | The same log lines shown in the console |
 
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
 | Problem | Fix |
 |---|---|
