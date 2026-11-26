@@ -133,7 +133,21 @@ From the main menu, **BMX Games** offers two real-time games played right in the
   tires 25. Getting hit costs a life.
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game.
 
-## 8. The data folder
+## 8. BMX Newsmap
+
+**BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
+bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
+tiles are from the last 24 hours. Click a tile to read the summary. The story page has a **QR code**: scan it
+with a phone camera to open the full article.
+
+- The board reads the news feeds every 30 minutes (and when someone clicks **Refresh**).
+- **Sysop Admin > News & Rules > BMX News Feeds** edits the feed list: one RSS or Atom link per line.
+  WordPress sites usually have their feed at `/feed/`. Save, and the map refreshes right away. Erase every line
+  to go back to the default list.
+- A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
+  map says how many feeds answered.
+
+## 9. The data folder
 
 | File | Contents |
 |---|---|
@@ -146,7 +160,7 @@ From the main menu, **BMX Games** offers two real-time games played right in the
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 9. Troubleshooting
+## 10. Troubleshooting
 
 | Problem | Fix |
 |---|---|

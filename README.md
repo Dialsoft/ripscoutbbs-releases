@@ -26,6 +26,7 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 - Six color themes each caller can choose
 - **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
 - **BMX Games**: *Dirt Jumper* (side-scroller) and *Cone Blaster* (shooter), with high score tables
+- **BMX Newsmap**: BMX news as a RIP treemap, with a **QR code** on every story to open it on your phone
 - **Auto-update**: checks this page every 6 hours, verifies each download, and installs only when nobody is online
 
 | | |
@@ -36,6 +37,7 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 | ![BMX Games](screenshots/bmx-games.png) | ![Dirt Jumper](screenshots/dirt-jumper.png) |
 |---|---|
 | ![Cone Blaster](screenshots/cone-blaster.png) | ![Sysop Admin](screenshots/sysop-admin.png) |
+| ![BMX Newsmap](screenshots/newsmap.png) | ![Story with QR code](screenshots/news-story-qr.png) |
 
 ## Quick start
 
