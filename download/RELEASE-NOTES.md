@@ -1,12 +1,11 @@
-**RipscoutBBS 1.5.0: File Libraries, Echomail and Turbo Lap**
+**RipscoutBBS 1.6.0: Notifications, Email, Usenet, Finger, Word Wheelie and Solitaire**
 
-- **File Libraries** (main menu, key L): browse libraries, search every file, read descriptions and download with **Zmodem**, which is built in. Click Download and DialComm receives the file by itself; uploads work the same way in reverse.
-  - Sysops add files by dragging them onto the new **Files** tab in the Control Panel, or by copying them into the library folders and pressing Scan Folders.
-- **Echomail (FTN)** (Sysop Admin > Echomail): share message areas with **fsxNet, FidoNet** and other FTN networks.
-  - Built-in binkp mailer with CRAM-MD5 passwords. It calls out to your hub, so there is nothing to open on your router.
-  - AreaFix to join echoes, automatic message areas for new echoes, duplicate checking, and netmail replies in a sysop-only area.
-  - Set it up in RIP or on the Control Panel's new **Echomail** tab. You need a node address from the network (fsxNet is free; see the Sysop Guide).
-- **Turbo Lap**, a fifth BMX Game: a pseudo-3D arcade road racer. The road is drawn once, and its rushing stripes are pure RIP palette cycling. Steer through curves, pass cars and beat the clock.
-- Small fixes: dialogs widen to fit long lines, and file counts say "1 file".
+- **Notifications on any screen**: new email, game invitations, pages and sysop broadcasts pop up as a card in the top right, wherever the caller is. Press a key and the screen underneath comes back exactly as it was. Click the card (at a menu) to open what it is about, then return to the same screen.
+- **Email** (main menu, key E): private letters between members, with Reply (quoted), Delete, unread markers and "You have mail" at login.
+- **Usenet newsgroups** (Sysop Admin > Networks > Usenet, or the Control Panel's Networks tab): enter a news server (Eternal September is free), add groups like alt.bbs or rec.bicycles.misc, and each becomes a message area. Replies post back to Usenet as proper threaded follow-ups. Encryption (TLS) and logins are supported.
+- **Finger server** on port 79: `finger @yourboard` lists who is online; `finger name@yourboard` shows a member and their plan (Your Settings > Finger Plan). It never shows IP or email addresses. Set the port, or 0 for off, in Board Settings.
+- **Word Wheelie**, a five-letter word game: a Run mode for high scores, and **Word Duels**, where you challenge a caller who is online to the same word through a notification.
+- **Solitaire** (Klondike, draw one), played with the mouse: undo, auto-finish, classic scoring and the bouncing-card victory lap.
+- The BMX Games screen now shows all seven games in a 4 x 2 grid. The Control Panel's Echomail tab is now Networks, with Usenet beside Echomail.
 
-If you're running 1.4.0, this update installs itself the next time nobody is online.
+If you're running 1.5.0, this update installs itself the next time nobody is online.

@@ -12,7 +12,7 @@ Admin system. It's built to show off RIPscrip as far as it goes, and made for
 ## Download
 
 Get **RipscoutBBS.exe** from the [latest release](https://github.com/Dialsoft/ripscoutbbs-releases/releases/latest).
-It's one Windows EXE (about 8 MB) with nothing to install.
+It's one Windows EXE (about 8.5 MB) with nothing to install.
 
 ## Features
 
@@ -25,9 +25,12 @@ It's one Windows EXE (about 8 MB) with nothing to install.
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
 - **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
-- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks) and *Turbo Lap* (3-D arcade road racer), with high score tables
+- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks), *Turbo Lap* (3-D arcade road racer), *Word Wheelie* (word game with Word Duels) and *Solitaire*, with high score tables
+- **Email** between members, and **notifications on any screen** for new mail, game invites, pages and broadcasts. Click one to open it
 - **File Libraries**: browse, search, download and upload files with built-in **Zmodem** (DialComm starts receiving by itself)
 - **Echomail**: share message areas with **fsxNet, FidoNet** and other FTN networks through a built-in binkp mailer, set up in RIP or the Control Panel
+- **Usenet newsgroups**: each newsgroup becomes a message area; read and post over NNTP (with encryption and login)
+- **Finger server**: `finger @yourboard` shows who's on; `finger name@yourboard` shows a member and their plan
 - **Content Editor in RIP**: edit every menu (items, icons, modules, submenus), draw pixel icons, swap backgrounds, all live
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
 - **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
@@ -45,11 +48,14 @@ It's one Windows EXE (about 8 MB) with nothing to install.
 | ![BMX Newsmap](screenshots/newsmap.png) | ![Story with QR code](screenshots/news-story-qr.png) |
 | ![Spoke Breaker](screenshots/spoke-breaker.png) | ![Block Drop](screenshots/block-drop.png) |
 | ![Turbo Lap](screenshots/turbo-lap.png) | ![Turbo Lap in a curve](screenshots/turbo-lap-curve.png) |
+| ![Word Wheelie](screenshots/word-wheelie.png) | ![Solitaire](screenshots/solitaire.png) |
 
 | ![Content Editor](screenshots/content-editor.png) | ![Pixel icon editor](screenshots/pixel-editor.png) |
 | ![Linked Teleconference](screenshots/linked-chat.png) | ![Private message from a linked board](screenshots/linked-private.png) |
 | ![File Libraries](screenshots/file-libraries.png) | ![File details with Zmodem download](screenshots/file-details.png) |
 | ![Echomail setup](screenshots/echomail.png) | ![A message from fsxNet](screenshots/echomail-message.png) |
+| ![Usenet setup](screenshots/usenet.png) | ![A Usenet article](screenshots/usenet-article.png) |
+| ![A notification on the main menu](screenshots/notification.png) | ![A Word Duel invitation](screenshots/word-duel-invite.png) |
 
 ![Control Panel](screenshots/control-panel.png)
 

@@ -23,16 +23,16 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 |---|---|
 | Dashboard | Callers online (with Page and Disconnect), broadcast to everyone, calls today and in total, members, messages, uptime, a 14-day calls chart, and the addresses callers can use |
 | Users | Search accounts, change security levels, lock or unlock, reset passwords, delete |
-| Settings | Every board setting, including System News and Board Rules. Saving applies them live |
+| Settings | Every board setting (including the finger port), System News and Board Rules. Saving applies them live |
 | Files | The File Libraries: drag files from Windows onto the box to add them, write descriptions, delete, make new libraries, scan folders |
-| Echomail | FTN echomail setup (address, hub, passwords, poll time), Poll now, AreaFix, and the log of recent calls to the hub |
+| Networks | FTN echomail (address, hub, passwords, Poll now, AreaFix) and Usenet (news server, login, Check now, Add group), each with a log of recent calls |
 | BMX News | The Newsmap feed list and a Refresh button |
 | High Scores | Top 10 for every BMX Game |
 | Updates | Version, latest on GitHub, Check now, Install now, auto-install on/off |
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
-the board remembers is in that folder (see section 10). To back up the board, copy that folder.
+the board remembers is in that folder (see section 11). To back up the board, copy that folder.
 
 ### Command-line options (optional)
 
@@ -113,11 +113,16 @@ Click a row (or press its letter) to change it.
 | New user level | Click to cycle New User / Validated / Trusted |
 | Allow new signups | When OFF, the welcome screen shows "Signups Closed" |
 | Require email at signup | When OFF, email is optional |
+| Finger server port | 79 is standard; 0 turns finger off. See *Finger* below |
 
 ### Message Areas
 **Add Area**, or click an area to rename it, change its description, change its read/post levels
-(click to cycle), or delete it with all of its messages. **Echo Tag** shares the area with an FTN network
-(see Echomail below); leave it blank for a local-only area.
+(click to cycle), or delete it with all of its messages. **Echo Tag** shares the area with an FTN network,
+and **Newsgroup** mirrors a Usenet newsgroup (see Networks below). An area can be shared with one network;
+leave both blank for a local-only area.
+
+### Networks
+The **Networks** tile offers two kinds of shared message areas: **Echomail** and **Usenet**.
 
 ### Echomail (FTN)
 Echomail connects your message areas to the big BBS message networks: **fsxNet**, **FidoNet**, AgoraNet and
@@ -159,6 +164,39 @@ new mail (ZIP bundles of packets). Each message is filed into the area for its `
 MSGID) are skipped, and the routing lines (SEEN-BY, PATH, kludges) are hidden from readers. Messages from the
 network show the sender's address next to their name. Files that are not mail (nodelists, .tic files) are kept
 in `ftn\bad` for you. **Log** shows what happened on recent calls.
+
+### Usenet newsgroups
+Usenet is the original internet-wide discussion system: tens of thousands of *newsgroups* such as `alt.bbs`,
+`comp.misc` or `rec.bicycles.misc`. RipscoutBBS reads them from a **news server** with NNTP and shows each
+newsgroup as a message area. Replies and new posts written here go out to Usenet on the next check.
+
+**Getting a news server.** **Eternal September** (eternal-september.org) is free: register with your email
+and you get a login for `news.eternal-september.org`. Your internet provider or a paid Usenet service work too.
+
+**Setting it up** (Sysop Admin > Networks > Usenet, or the Control Panel's Networks tab). Click a row to change it.
+
+| Setting | What it is |
+|---|---|
+| News server | Host name, e.g. `news.eternal-september.org` |
+| Port / Encryption | 119 for plain NNTP, or 563 with encryption (TLS) on. Switching encryption switches the port too |
+| Login name / Password | Your news server account (blank if the server needs no login) |
+| Check every | Minutes between checks (30 is plenty for most groups) |
+| Most per group | The most new articles fetched from one group per check |
+| Poster address | Posts go out `From: handle@this-domain`. The default, `boardname.invalid`, is the Usenet way to keep spammers from harvesting your callers' addresses |
+
+Press **Turn On**, then **Add Group** for each newsgroup. The first check brings in a group's newest 50
+articles; after that, everything new. **Check Now** checks right away. Articles show "via Usenet" next to the
+sender's name. MIME is handled (accented letters, quoted-printable and base64 text, and multipart messages,
+where the plain-text part is shown). Attachments and binary groups are not downloaded.
+
+### Finger
+RipscoutBBS answers **finger**, the classic internet "who's on?" service, on port 79:
+- `finger @yourboard.com` lists the callers online: node, name, what they're doing, how long they've been on.
+- `finger marc@yourboard.com` shows a member: level, location, member since, calls, posts, last call, whether
+  they have unread mail, and their **plan**, a line each caller writes in Your Settings > Finger Plan.
+
+Finger never shows IP or email addresses. Change the port, or set it to 0 to turn finger off, in Board Settings.
+Callers outside your network need port 79 forwarded to the server, like the telnet port.
 
 ### Nodes & Broadcast
 Shows every connected node with its address and what it's doing. Click a node to **disconnect** it (the
@@ -225,7 +263,23 @@ Security: the password never crosses the network (each side proves it knows the 
 challenge), and everything on the link is encrypted with AES-256-GCM. Messages travel one hop, so to join
 three boards, link each pair.
 
-## 7. File Libraries
+## 7. Email and notifications
+
+**Email** on the main menu is private mail between members: a mailbox (blue = unread), Read, Reply (with the
+letter quoted), Delete and Write a Letter. Letters are kept in `mail.json`.
+
+**Notifications** pop up on any screen, top right, with a beep:
+- a **new letter** ("New email from Marc"),
+- a **game invitation** (a Word Duel challenge, see BMX Games),
+- **pages** from other callers and **broadcasts** from the sysop,
+- at login, "You have mail" when letters are waiting.
+
+A notification goes away after a few seconds or when the caller presses a key, and the screen underneath comes
+back exactly as it was. When the caller is at a menu, **clicking** the notification opens what it is about
+(the mailbox, or the game) and then returns to the same screen. During a real-time game, notifications wait
+until the game is over.
+
+## 8. File Libraries
 
 **File Libraries** on the main menu is the download (and upload) section. Callers pick a library, click a file
 to see its details and description, and press **Download (Zmodem)**. DialComm (and most terminals) start
@@ -241,9 +295,9 @@ terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl
 - **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
 - Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
 
-## 8. BMX Games
+## 9. BMX Games
 
-From the main menu, **BMX Games** offers five real-time games played right in the terminal:
+From the main menu, **BMX Games** offers seven games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
   The track speeds up the longer you ride. You get 3 lives.
 - **Cone Blaster** (shooter): Left/Right or A/D rides, and SPACE or Up squirts water. Cones are worth 10 and
@@ -257,9 +311,19 @@ From the main menu, **BMX Games** offers five real-time games played right in th
   seconds; each finished lap adds 40 more. Passing a car scores 200, hitting one costs time. The road's
   rushing stripes are pure palette cycling: the road is drawn once and only 9 colors change per frame.
   A race sends about 10-15 KB per second, fine for any internet connection.
-- Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game.
+- **Word Wheelie** (word game): guess the hidden 5-letter word in 6 tries, typing or clicking the on-screen
+  keys. Green = right letter in the right spot, gold = in the word but elsewhere, gray = not in the word.
+  - **Run**: solve word after word. Each word scores 100 per unused guess, plus 100. The first miss ends the run.
+  - **Duel**: pick a caller who is online. They get a notification ("Marc challenges you to Word Wheelie!") and
+    click it to play the same word. When both have played, both get a notification saying who won.
+- **Solitaire** (Klondike, draw one): click a card, then click where it goes. Click a card twice to send it to
+  its foundation. Click the deck to turn a card (or turn the pile back over). D draws, U undoes, A sends
+  everything it can to the foundations, N deals again. Classic scoring, plus a time bonus when you win, and the
+  bouncing-cards victory lap.
+- Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game (Esc in
+  Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
-## 9. BMX Newsmap
+## 10. BMX Newsmap
 
 **BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
 bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
@@ -273,7 +337,7 @@ with a phone camera to open the full article.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
-## 10. The data folder
+## 11. The data folder
 
 | File | Contents |
 |---|---|
@@ -283,13 +347,15 @@ with a phone camera to open the full article.
 | `stats.json` | Calls per day and the BMX Games high scores |
 | `content.json` | Menus, icons and backgrounds made in the Content Editor |
 | `files.json`, `files\` | The File Libraries list and the files themselves (one folder per library) |
+| `mail.json` | Email between members |
+| `usenet\seen.json` | Usenet: Message-IDs already filed (duplicate check) |
 | `ftn\` | Echomail: `outbound` (packets waiting to go), `inbound` (just received), `bad` (files that were not mail), `seen.json` (duplicate check) |
 | `RipscoutBBS.log` | The same log lines shown in the console |
 
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 11. Troubleshooting
+## 12. Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -302,4 +368,7 @@ leave a half-written file behind. To restore a backup, close the board, copy the
 | Echomail says "cannot reach the hub" | Check the hub host and port with the hub's sysop. Some networks use a port other than 24554 |
 | Echomail says "hub refused the password" | Re-type the session password exactly as the hub's sysop gave it (it is case-sensitive) |
 | An echo arrives but no area appears | New echoes is set to "ignore": give an area that echo tag, or change the setting |
+| Usenet says "login refused" | Check the login name and password with your news provider. Some servers need encryption (port 563) |
+| Usenet posts are refused | Some free servers only allow posting after you confirm your account by email, or limit posts per day |
+| `finger` from outside gets no answer | Forward port 79 to the server and allow it in Windows Firewall. Some internet providers block port 79 |
 | A download doesn't start | The terminal needs Zmodem auto-download turned on (DialComm has it on by default) |
