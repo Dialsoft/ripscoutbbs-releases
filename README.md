@@ -12,7 +12,7 @@ Admin system. It's built to show off RIPscrip as far as it goes, and made for
 ## Download
 
 Get **RipscoutBBS.exe** from the [latest release](https://github.com/Dialsoft/ripscoutbbs-releases/releases/latest).
-It's one Windows EXE (about 3.7 MB) with nothing to install.
+It's one Windows EXE (about 8 MB) with nothing to install.
 
 ## Features
 
@@ -25,7 +25,9 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
 - **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
-- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker) and *Block Drop* (falling blocks), with high score tables
+- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks) and *Turbo Lap* (3-D arcade road racer), with high score tables
+- **File Libraries**: browse, search, download and upload files with built-in **Zmodem** (DialComm starts receiving by itself)
+- **Echomail**: share message areas with **fsxNet, FidoNet** and other FTN networks through a built-in binkp mailer, set up in RIP or the Control Panel
 - **Content Editor in RIP**: edit every menu (items, icons, modules, submenus), draw pixel icons, swap backgrounds, all live
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
 - **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
@@ -42,9 +44,12 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 | ![Cone Blaster](screenshots/cone-blaster.png) | ![Sysop Admin](screenshots/sysop-admin.png) |
 | ![BMX Newsmap](screenshots/newsmap.png) | ![Story with QR code](screenshots/news-story-qr.png) |
 | ![Spoke Breaker](screenshots/spoke-breaker.png) | ![Block Drop](screenshots/block-drop.png) |
+| ![Turbo Lap](screenshots/turbo-lap.png) | ![Turbo Lap in a curve](screenshots/turbo-lap-curve.png) |
 
 | ![Content Editor](screenshots/content-editor.png) | ![Pixel icon editor](screenshots/pixel-editor.png) |
 | ![Linked Teleconference](screenshots/linked-chat.png) | ![Private message from a linked board](screenshots/linked-private.png) |
+| ![File Libraries](screenshots/file-libraries.png) | ![File details with Zmodem download](screenshots/file-details.png) |
+| ![Echomail setup](screenshots/echomail.png) | ![A message from fsxNet](screenshots/echomail-message.png) |
 
 ![Control Panel](screenshots/control-panel.png)
 

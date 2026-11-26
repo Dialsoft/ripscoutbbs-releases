@@ -24,13 +24,15 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Dashboard | Callers online (with Page and Disconnect), broadcast to everyone, calls today and in total, members, messages, uptime, a 14-day calls chart, and the addresses callers can use |
 | Users | Search accounts, change security levels, lock or unlock, reset passwords, delete |
 | Settings | Every board setting, including System News and Board Rules. Saving applies them live |
+| Files | The File Libraries: drag files from Windows onto the box to add them, write descriptions, delete, make new libraries, scan folders |
+| Echomail | FTN echomail setup (address, hub, passwords, poll time), Poll now, AreaFix, and the log of recent calls to the hub |
 | BMX News | The Newsmap feed list and a Refresh button |
-| High Scores | Top 10 for all four BMX Games |
+| High Scores | Top 10 for every BMX Game |
 | Updates | Version, latest on GitHub, Check now, Install now, auto-install on/off |
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
-the board remembers is in that folder (see section 7). To back up the board, copy that folder.
+the board remembers is in that folder (see section 10). To back up the board, copy that folder.
 
 ### Command-line options (optional)
 
@@ -114,7 +116,49 @@ Click a row (or press its letter) to change it.
 
 ### Message Areas
 **Add Area**, or click an area to rename it, change its description, change its read/post levels
-(click to cycle), or delete it with all of its messages.
+(click to cycle), or delete it with all of its messages. **Echo Tag** shares the area with an FTN network
+(see Echomail below); leave it blank for a local-only area.
+
+### Echomail (FTN)
+Echomail connects your message areas to the big BBS message networks: **fsxNet**, **FidoNet**, AgoraNet and
+other FTN ("FidoNet Technology") networks. A message posted in a shared area here appears on every board in
+the network, and theirs appear here. The board uses **binkp**, the standard way FTN boards swap mail over the
+internet, and always calls *out* to its hub, so there is nothing to open on your router.
+
+**Getting a node address.** You need an address from the network's coordinator. fsxNet is the friendliest
+place to start (free; apply at fsxnet.nz). The reply gives you:
+- **your address**, like `21:4/123`
+- your **hub's address** (like `21:4/100`) and **internet host** (like `agency.bbs.nz:24556`)
+- a **session password**, and sometimes separate packet and AreaFix passwords.
+
+**Setting it up** (Sysop Admin > Echomail, or the Control Panel's Echomail tab). Click any row to change it.
+
+| Setting | What it is |
+|---|---|
+| This board's address | Your node address, `zone:net/node` |
+| Network name | The network's short name, e.g. `fsxnet` (sent with your address) |
+| Hub address / Hub internet host | Your uplink. Without a port, 24554 is used |
+| Session password | Checked with CRAM-MD5, so the password itself never crosses the internet (when the hub supports it, as nearly all do) |
+| Packet password | Written inside each mail packet (up to 8 letters). Blank if your hub uses none |
+| AreaFix password | For the hub's AreaFix robot |
+| Poll every | Minutes between calls (15 is typical, 5 the minimum) |
+| Origin line | The `* Origin:` line under every message you send. Blank = the board name |
+| New echoes | Make a message area automatically for each new echo tag, or ignore unknown tags |
+
+Then press **Turn On**. **Poll Now** calls the hub right away, and the screen shows the result.
+
+**Picking echoes.** Press **AreaFix** and type the tags to join, like `+FSX_GEN +FSX_BBS +FSX_RETRO`
+(`-TAG` leaves one; `%LIST` asks for the full list). The hub's reply arrives as netmail in the sysop-only
+**Netmail** area. New echoes then appear as message areas by themselves. To share an existing area, give it
+an echo tag in Message Areas; only posts written after that are sent out, so old local messages don't flood
+the network.
+
+**How it works**, if you are curious: new local posts are packed into a mail *packet* (FTS-0001 type 2+) in
+`RipscoutBBS-data\ftn\outbound`. On each poll the board logs in to the hub, sends the packets and receives
+new mail (ZIP bundles of packets). Each message is filed into the area for its `AREA:` tag. Duplicates (same
+MSGID) are skipped, and the routing lines (SEEN-BY, PATH, kludges) are hidden from readers. Messages from the
+network show the sender's address next to their name. Files that are not mail (nodelists, .tic files) are kept
+in `ftn\bad` for you. **Log** shows what happened on recent calls.
 
 ### Nodes & Broadcast
 Shows every connected node with its address and what it's doing. Click a node to **disconnect** it (the
@@ -181,9 +225,25 @@ Security: the password never crosses the network (each side proves it knows the 
 challenge), and everything on the link is encrypted with AES-256-GCM. Messages travel one hop, so to join
 three boards, link each pair.
 
-## 7. BMX Games
+## 7. File Libraries
 
-From the main menu, **BMX Games** offers two real-time games played right in the terminal:
+**File Libraries** on the main menu is the download (and upload) section. Callers pick a library, click a file
+to see its details and description, and press **Download (Zmodem)**. DialComm (and most terminals) start
+receiving automatically: no menus, no protocol picking. **Upload a File** works the other way: the caller
+writes a one-line description, and DialComm notices the board is ready and asks which file to send (other
+terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl+Shift+U). **Search All Files** finds files by name or description in every library.
+
+- The board starts with three libraries: BMX Videos & Pictures, RIPscrip Art & Icons, Terminals & Utilities.
+- Each library is a folder in `RipscoutBBS-data\files\`. Copy files into a folder yourself and press
+  **Scan Folders** (in RIP or the Control Panel) to list them. Or drag files onto the Control Panel's
+  **Files** tab.
+- Staff (Co-Sysop and up) can make **New Area**s, edit descriptions and delete files from RIP.
+- **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
+- Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
+
+## 8. BMX Games
+
+From the main menu, **BMX Games** offers five real-time games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
   The track speeds up the longer you ride. You get 3 lives.
 - **Cone Blaster** (shooter): Left/Right or A/D rides, and SPACE or Up squirts water. Cones are worth 10 and
@@ -192,9 +252,14 @@ From the main menu, **BMX Games** offers two real-time games played right in the
   the wheel hits the bars sets its angle. Clear the wall for +500 and a faster next level.
 - **Block Drop** (falling blocks): Left/Right moves, Up or W rotates, Down or S soft-drops, and SPACE hard-drops.
   Lines score 40/100/300/1200 times the level, and the blocks fall faster every 10 lines.
+- **Turbo Lap** (3-D road racer, arcade style): the car speeds up by itself. Left/Right or A/D steers and
+  Down, S or SPACE brakes. Curves push you to the outside, and the grass slows you down. You have 60
+  seconds; each finished lap adds 40 more. Passing a car scores 200, hitting one costs time. The road's
+  rushing stripes are pure palette cycling: the road is drawn once and only 9 colors change per frame.
+  A race sends about 10-15 KB per second, fine for any internet connection.
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game.
 
-## 8. BMX Newsmap
+## 9. BMX Newsmap
 
 **BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
 bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
@@ -208,7 +273,7 @@ with a phone camera to open the full article.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
-## 9. The data folder
+## 10. The data folder
 
 | File | Contents |
 |---|---|
@@ -216,12 +281,15 @@ with a phone camera to open the full article.
 | `users.json` | Accounts. Passwords are stored only as salted PBKDF2-SHA256 hashes (210,000 rounds), so nobody (including you) can read them |
 | `boards.json` | Message areas and messages |
 | `stats.json` | Calls per day and the BMX Games high scores |
+| `content.json` | Menus, icons and backgrounds made in the Content Editor |
+| `files.json`, `files\` | The File Libraries list and the files themselves (one folder per library) |
+| `ftn\` | Echomail: `outbound` (packets waiting to go), `inbound` (just received), `bad` (files that were not mail), `seen.json` (duplicate check) |
 | `RipscoutBBS.log` | The same log lines shown in the console |
 
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 10. Troubleshooting
+## 11. Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -231,3 +299,7 @@ leave a half-written file behind. To restore a backup, close the board, copy the
 | Outside callers can't connect but local ones can | Check the firewall rule and router forwarding; try a port other than 23 |
 | Forgot the Sysop password | Close the board. In `users.json`, set another staff account's `"level"` to 100, log in as that account and reset the Sysop password. If there is no other staff account, rename `users.json` to start a fresh user list (the boards and settings are kept) |
 | "All lines are busy" | Raise Max nodes in Board Settings |
+| Echomail says "cannot reach the hub" | Check the hub host and port with the hub's sysop. Some networks use a port other than 24554 |
+| Echomail says "hub refused the password" | Re-type the session password exactly as the hub's sysop gave it (it is case-sensitive) |
+| An echo arrives but no area appears | New echoes is set to "ignore": give an area that echo tag, or change the setting |
+| A download doesn't start | The terminal needs Zmodem auto-download turned on (DialComm has it on by default) |
