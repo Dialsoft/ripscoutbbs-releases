@@ -28,7 +28,7 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Networks | FTN echomail (address, hub, passwords, Poll now, AreaFix) and Usenet (news server, login, Check now, Add group), each with a log of recent calls |
 | BMX News | The Newsmap feed list and a Refresh button |
 | High Scores | Top 10 for every BMX Game |
-| Updates | Version, latest on GitHub, Check now, Install now, auto-install on/off |
+| Updates | Version, latest on GitHub, the update setting (Ask me first / Automatic / Off), What's new, Check now, Install now |
 | Audit | The audit trail: filter by kind, search, and save as CSV (see *Audit Trail* below) |
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
@@ -233,15 +233,24 @@ Both open in the full-screen editor: each line is one paragraph, and paragraphs 
 Click **Save** to publish immediately.
 
 ### Updates
-RipscoutBBS keeps itself up to date from its download page on GitHub (`Dialsoft/ripscoutbbs-releases`).
-- It checks every 6 hours (and one minute after it starts).
-- A newer version is downloaded in the background and checked against its published SHA-256 checksum.
-  A download that doesn't match is thrown away and never run.
-- With **Auto-install ON** (the default), the update is installed the next time **nobody is online**.
-  The board restarts itself in the same window within a few seconds, so callers are never dropped.
-- **Install Now** installs right away: everyone online gets a 30-second warning pop-up, then the board restarts.
-- **Check Now** checks immediately. **Auto-install On/Off** switches the automatic install (live, like every setting).
+New versions of RipscoutBBS are published on its download page on GitHub (`Dialsoft/ripscoutbbs-releases`).
+**You decide what happens when one comes out** (Sysop Admin > Updates, or the Control Panel's Updates tab):
+
+| Setting | What it does |
+|---|---|
+| **Ask me first** (the default) | Every 6 hours the board looks for a new version. When it finds one, it downloads it and checks it against its published SHA-256 checksum, then **waits for you**. Staff who are online get a notification ("Update 2.1.0 is ready"), and staff logging in later get it too. You read what changes, then press **Install Now** when it suits you, or never. |
+| **Automatic** | As above, but it installs by itself the next time **nobody is online**. The board restarts in the same window within a few seconds, so callers are never dropped. |
+| **Off** | The board never contacts GitHub on its own. **Check Now** still works whenever you press it. |
+
+**What changes:** **What's New** (in RIP) and the **What's new** box (Control Panel) show the release notes of
+every version newer than yours, newest first, so you can read exactly what an update brings before installing.
+If you skip versions, the notes of all of them are there.
+
+- **Install Now** installs the downloaded version: everyone online gets a 30-second warning pop-up, then the
+  board restarts. It offers What's New first.
+- A download that doesn't match its checksum is thrown away and never run (and recorded in the audit trail).
 - During an update, the old EXE is briefly kept as `RipscoutBBS.old.exe` and then deleted automatically.
+- Boards updated from 1.9 or older start on **Ask me first**, whatever they had before.
 
 ### Content Editor
 **Sysop Admin > Content Editor** changes how the board looks and what its menus do, live, in RIP. It's saved

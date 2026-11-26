@@ -39,7 +39,7 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
 - **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
 - **BMX Newsmap**: BMX news as a RIP treemap, with a **QR code** on every story to open it on your phone
-- **Auto-update**: checks this page every 6 hours, verifies each download, and installs only when nobody is online
+- **Updates on your terms**: Ask me first (the default: download, verify, notify, show what changes, install when you say), Automatic, or Off
 
 | | |
 |---|---|

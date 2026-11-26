@@ -1,21 +1,14 @@
-**RipscoutBBS 1.9.0: Stats and the audit trail**
+**RipscoutBBS 2.0.0: You decide when updates install**
 
-- **BBS Stats** (main menu): the board by the numbers. Calls, members, messages, files, downloads and words typed; calls over the last 14 days; the busiest hours; records like the busiest moment ever.
-- **Leaderboards:** the top 5 for calls, posts, words typed, time online, downloads and uploads.
-- **My Stats:** every caller's own numbers.
-  - Logins, time online and longest visit, plus calling streaks.
-  - Words typed (posts, email and chat), chat lines, email sent and received.
-  - Uploads and downloads, games played, best high-score placing, Word Duels won and lost.
-  - Charts of when they call, and **10 badges** to earn.
-- Sysops can open any member's stats from Sysop Admin > Users.
-- **Audit trail** (Sysop Admin > Audit Trail, and the Control Panel's new **Audit** tab):
-  - Records logins and logoffs, failed logins, signups, and security events (passwords, two-factor, locks, deletions).
-  - Records sysop actions, and **every settings change with its old and new value** (passwords show only "changed").
-  - Also covers uploads, downloads and deletions, and network and system events.
-  - Filter by kind and search in both places; the Control Panel can save it as a CSV file.
-  - Kept in audit.log in the data folder.
-- Fixed: a few counts said "entrys" and "guesss".
+- **New update setting** (Sysop Admin > Updates, or the Control Panel's Updates tab). When a new version comes out:
+  - **Ask me first** (the new default): the board downloads it and checks its SHA-256 checksum, tells you with a notification, and **waits**. Nothing is installed until you press Install Now.
+  - **Automatic:** installs by itself when nobody is online, as before.
+  - **Off:** the board never contacts GitHub on its own (Check Now still works).
+- **What's New:** read what an update changes before you install it.
+  - In RIP: a What's New button in Sysop Admin > Updates, also offered before Install Now.
+  - In the Control Panel: a What's new box on the Updates tab.
+  - Both show the notes of every version newer than yours, so skipping versions loses nothing.
+- **Staff notification:** sysops and co-sysops who are online get a notification when an update is ready ("Update 2.1.0 is ready"). Click it to open the Updates screen. Staff logging in later get the same notification.
+- Update availability and installs are recorded in the audit trail.
 
-The newer counters (time online, words, transfers and so on) start counting on the first visit after this update.
-
-If you're running 1.8.1, this update installs itself the next time nobody is online.
+**About this update:** boards set to install updates automatically install this one by themselves, as before. From now on, every board starts on **Ask me first**, so later versions wait for the sysop. Choose Automatic in Sysop Admin > Updates if you prefer it.
