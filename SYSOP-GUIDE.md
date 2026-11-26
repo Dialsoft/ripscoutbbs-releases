@@ -32,7 +32,7 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
-the board remembers is in that folder (see section 12). To back up the board, copy that folder.
+the board remembers is in that folder (see section 13). To back up the board, copy that folder.
 
 ### Command-line options (optional)
 
@@ -296,7 +296,20 @@ are already set up keep the name they were given.
 The secret key behind each caller's codes is kept in `users.json`, so protect your backups of the data folder
 like you would a password list. Backup codes are stored only as salted hashes.
 
-## 8. Email and notifications
+## 8. Sound
+
+RipscoutBBS uses the two kinds of sound BBSes had:
+- **RIPscrip sound effects**, built into RIPscrip 1.54: $BEEP$, $BLIP$, $ALARM$, $PHASER$, $REVPHASER$ and $MUSIC$.
+  The games use them (a blip when you jump or hit something, a phaser zap when you crash, Turbo Lap's start
+  lights), and so do pages (beep) and sysop broadcasts (alarm). In DialComm they follow the **Bell** setting.
+- **ANSI music**, tunes in the GW-BASIC "PLAY" notation: a riff on the spinning-wheel welcome screen, a chime
+  for new mail, a fanfare for game invitations and high scores, and a few jingles in the games. In DialComm,
+  turn on **ANSI Music** to hear them (the status line offers it the first time a tune arrives).
+
+Each caller can turn the board's sounds off or on in **Your Settings > Sound**. The **RIP Showcase** has a
+Sound page (page 8) with a button for every effect and a few tunes.
+
+## 9. Email and notifications
 
 **Email** on the main menu is private mail between members: a mailbox (blue = unread), Read, Reply (with the
 letter quoted), Delete and Write a Letter. Letters are kept in `mail.json`.
@@ -312,7 +325,7 @@ back exactly as it was. When the caller is at a menu, **clicking** the notificat
 (the mailbox, or the game) and then returns to the same screen. During a real-time game, notifications wait
 until the game is over.
 
-## 9. File Libraries
+## 10. File Libraries
 
 **File Libraries** on the main menu is the download (and upload) section. Callers pick a library, click a file
 to see its details and description, and press **Download (Zmodem)**. DialComm (and most terminals) start
@@ -328,7 +341,7 @@ terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl
 - **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
 - Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
 
-## 10. BMX Games
+## 11. BMX Games
 
 From the main menu, **BMX Games** offers seven games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
@@ -356,7 +369,7 @@ From the main menu, **BMX Games** offers seven games played right in the termina
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
-## 11. BMX Newsmap
+## 12. BMX Newsmap
 
 **BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
 bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
@@ -370,7 +383,7 @@ with a phone camera to open the full article.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
-## 12. The data folder
+## 13. The data folder
 
 | File | Contents |
 |---|---|
@@ -388,7 +401,7 @@ with a phone camera to open the full article.
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 13. Troubleshooting
+## 14. Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -405,4 +418,5 @@ leave a half-written file behind. To restore a backup, close the board, copy the
 | Usenet says "login refused" | Check the login name and password with your news provider. Some servers need encryption (port 563) |
 | Usenet posts are refused | Some free servers only allow posting after you confirm your account by email, or limit posts per day |
 | `finger` from outside gets no answer | Forward port 79 to the server and allow it in Windows Firewall. Some internet providers block port 79 |
+| No music in DialComm | Turn on ANSI Music (click the "Music Off" note on the status line, or the ribbon). Sound effects follow the Bell setting |
 | A download doesn't start | The terminal needs Zmodem auto-download turned on (DialComm has it on by default) |

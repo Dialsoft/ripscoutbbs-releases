@@ -31,6 +31,7 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Echomail**: share message areas with **fsxNet, FidoNet** and other FTN networks through a built-in binkp mailer, set up in RIP or the Control Panel
 - **Usenet newsgroups**: each newsgroup becomes a message area; read and post over NNTP (with encryption and login)
 - **Two-factor sign-in** with Google Authenticator: the setup QR code is drawn right in RIP, with backup codes, a sysop reset tool and a configurable name in the app
+- **Sound**: RIPscrip's own sound effects in the games and notifications, ANSI music jingles, and a Sound page in the RIP Showcase
 - **Finger server**: `finger @yourboard` shows who's on; `finger name@yourboard` shows a member and their plan
 - **Content Editor in RIP**: edit every menu (items, icons, modules, submenus), draw pixel icons, swap backgrounds, all live
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
@@ -58,6 +59,7 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 | ![Usenet setup](screenshots/usenet.png) | ![A Usenet article](screenshots/usenet-article.png) |
 | ![A notification on the main menu](screenshots/notification.png) | ![A Word Duel invitation](screenshots/word-duel-invite.png) |
 | ![Two-factor setup with a QR code drawn in RIP](screenshots/two-factor-setup.png) | ![Two-factor code at login](screenshots/two-factor-login.png) |
+| ![RIP Showcase: Sound](screenshots/showcase-sound.png) | |
 
 ![Control Panel](screenshots/control-panel.png)
 

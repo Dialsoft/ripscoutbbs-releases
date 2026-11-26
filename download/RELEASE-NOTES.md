@@ -1,9 +1,9 @@
-**RipscoutBBS 1.7.0: Two-factor sign-in with Google Authenticator**
+**RipscoutBBS 1.8.0: Sound**
 
-- **Two-factor sign-in** (Your Settings > Two-Factor): the board draws a QR code right on the RIP screen. Scan it with Google Authenticator (or Microsoft Authenticator, Authy...), type the 6-digit code, and from then on every login asks for the password and then the code.
-  - **8 backup codes**, shown once, for a lost phone. Each works one time.
-  - Callers can move to a **new phone**, make **new backup codes**, or **turn it off** themselves (each confirmed with a current code).
-- **Reset tool for the sysop:** Reset 2FA on a member in Sysop Admin > Users, or on the Control Panel's Users tab, for someone who lost both their phone and their backup codes. Every reset is logged.
-- **Authenticator name:** Board Settings (and the Control Panel's Settings tab) set the name callers see for this board in their authenticator app. Blank = the BBS name.
+- **RIPscrip sound effects** ($BEEP$, $BLIP$, $ALARM$, $PHASER$, $REVPHASER$, $MUSIC$), the sounds built into RIPscrip 1.54, now play in the games: a blip for jumps and hits, a phaser zap for crashes, and Turbo Lap's start lights. Pages beep and sysop broadcasts sound the alarm.
+- **ANSI music** jingles: a riff on the spinning-wheel welcome screen, a chime for new mail, fanfares for game invitations and high scores, and tunes for cleared levels and solved words.
+- **Your Settings > Sound** turns the board's sounds on or off for each caller.
+- **RIP Showcase page 8, Sound:** a button for every RIPscrip effect (pure RIP: the terminal plays it without asking the board) and a few tunes.
+- In DialComm, sound effects follow the Bell setting; turn on ANSI Music to hear the tunes. DialComm 1.9.5 gives each RIPscrip effect its own sound (older versions ring the bell for all of them).
 
-If you're running 1.6.0, this update installs itself the next time nobody is online.
+If you're running 1.7.0, this update installs itself the next time nobody is online.
