@@ -26,6 +26,8 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 - Six color themes each caller can choose
 - **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
 - **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker) and *Block Drop* (falling blocks), with high score tables
+- **Content Editor in RIP**: edit every menu (items, icons, modules, submenus), draw pixel icons, swap backgrounds, all live
+- **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
 - **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
 - **BMX Newsmap**: BMX news as a RIP treemap, with a **QR code** on every story to open it on your phone
 - **Auto-update**: checks this page every 6 hours, verifies each download, and installs only when nobody is online
@@ -40,6 +42,9 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 | ![Cone Blaster](screenshots/cone-blaster.png) | ![Sysop Admin](screenshots/sysop-admin.png) |
 | ![BMX Newsmap](screenshots/newsmap.png) | ![Story with QR code](screenshots/news-story-qr.png) |
 | ![Spoke Breaker](screenshots/spoke-breaker.png) | ![Block Drop](screenshots/block-drop.png) |
+
+| ![Content Editor](screenshots/content-editor.png) | ![Pixel icon editor](screenshots/pixel-editor.png) |
+| ![Linked Teleconference](screenshots/linked-chat.png) | ![Private message from a linked board](screenshots/linked-private.png) |
 
 ![Control Panel](screenshots/control-panel.png)
 

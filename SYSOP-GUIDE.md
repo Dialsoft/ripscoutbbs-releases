@@ -140,6 +140,47 @@ RipscoutBBS keeps itself up to date from its download page on GitHub (`Dialsoft/
 - **Check Now** checks immediately. **Auto-install On/Off** switches the automatic install (live, like every setting).
 - During an update, the old EXE is briefly kept as `RipscoutBBS.old.exe` and then deleted automatically.
 
+### Content Editor
+**Sysop Admin > Content Editor** changes how the board looks and what its menus do, live, in RIP. It's saved
+in `content.json` in the data folder.
+
+- **Menus**: click a menu to edit it. You can:
+  - **Add Item**: give it a label, then choose what it opens. That can be a *module* (Message Boards,
+    Teleconference, Who's Online, any single BMX game, the Newsmap, Your Settings, Sysop Admin, Goodbye...) or
+    *another menu*.
+  - Click an item to change its label, hotkey, icon, what it opens, or who can see it (minimum level), move it
+    up or down, or delete it.
+  - **Title**, **Caption**, **Background**, **Side Panel** (the clock and who's-online panel) and **Try It**
+    (opens the menu as a caller sees it).
+  - **Create a new menu**, then add an item on another menu that opens it (a submenu).
+  - Safety: the main menu always keeps its Sysop Admin item, and on any menu, staff can press **%** to open
+    Sysop Admin.
+- **Icons**: the library. Built-in icons are vector drawings. **Draw a New Icon** opens the pixel editor:
+  pick a color on the right, click squares on the big grid, and watch the actual-size and on-a-button previews.
+  Save, Fill All, Clear, Rename (menus follow the new name) and Delete are there too.
+- **Backgrounds**: click one to edit it with a live preview: kind (pattern, custom, bands, stars, grid, dirt,
+  solid), both colors, the pattern number, or, for *custom*, click the 8x8 squares to make your own texture.
+  **Make Board Default** sets the background for every screen that doesn't choose its own.
+
+### Chat Links (linked Teleconference)
+Link your Teleconference with other boards running RipscoutBBS, so callers on all of them chat in one room.
+
+1. **Sysop Admin > Chat Links**: set this board's **Tag** (short name, e.g. RIPSCOUT) and **Port**
+   (2324 suggested; allow it in Windows Firewall and forward it on your router).
+2. **Add Link**: enter the *other* board's tag, its address, its link port, and a **link password**. The other
+   sysop adds your board the same way, with the same password.
+3. Both boards keep trying to connect every 30 seconds. The list shows **LINKED** when it's up, and the
+   Control Panel dashboard shows it too.
+
+In Teleconference, the room list shows everyone with a **line number**: `03` is a caller here, `A07` is line
+7 on linked board A (the first link in your list), `B02` on board B, and so on. To send a private message,
+**click a name** for a pop-up, or type `/03 message` or `/A07 message`. It arrives as a pop-up on the other
+caller's screen.
+
+Security: the password never crosses the network (each side proves it knows the password with an HMAC
+challenge), and everything on the link is encrypted with AES-256-GCM. Messages travel one hop, so to join
+three boards, link each pair.
+
 ## 7. BMX Games
 
 From the main menu, **BMX Games** offers two real-time games played right in the terminal:
