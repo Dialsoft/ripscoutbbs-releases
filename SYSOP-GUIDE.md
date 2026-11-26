@@ -22,7 +22,7 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Tab | What it does |
 |---|---|
 | Dashboard | Callers online (with Page and Disconnect), broadcast to everyone, calls today and in total, members, messages, uptime, a 14-day calls chart, and the addresses callers can use |
-| Users | Search accounts, change security levels, lock or unlock, reset passwords, delete |
+| Users | Search accounts, change security levels, lock or unlock, reset passwords, reset two-factor (2FA), delete |
 | Settings | Every board setting (including the finger port), System News and Board Rules. Saving applies them live |
 | Files | The File Libraries: drag files from Windows onto the box to add them, write descriptions, delete, make new libraries, scan folders |
 | Networks | FTN echomail (address, hub, passwords, Poll now, AreaFix) and Usenet (news server, login, Check now, Add group), each with a log of recent calls |
@@ -32,7 +32,7 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
-the board remembers is in that folder (see section 11). To back up the board, copy that folder.
+the board remembers is in that folder (see section 12). To back up the board, copy that folder.
 
 ### Command-line options (optional)
 
@@ -113,6 +113,7 @@ Click a row (or press its letter) to change it.
 | New user level | Click to cycle New User / Validated / Trusted |
 | Allow new signups | When OFF, the welcome screen shows "Signups Closed" |
 | Require email at signup | When OFF, email is optional |
+| Authenticator name | The name callers see for this board in Google Authenticator. Blank = the BBS name. Changes apply to new setups only |
 | Finger server port | 79 is standard; 0 turns finger off. See *Finger* below |
 
 ### Message Areas
@@ -263,7 +264,39 @@ Security: the password never crosses the network (each side proves it knows the 
 challenge), and everything on the link is encrypted with AES-256-GCM. Messages travel one hop, so to join
 three boards, link each pair.
 
-## 7. Email and notifications
+## 7. Two-factor sign-in (Google Authenticator)
+
+Any caller can protect their account with a second step at login: a 6-digit code from an authenticator app on
+their phone. Google Authenticator is free; Microsoft Authenticator, Authy, 1Password and the like work too.
+
+**Turning it on** (Your Settings > Two-Factor):
+1. The board draws a **QR code** right on the RIP screen.
+2. The caller opens the app, taps **+**, picks **Scan a QR code** and points the phone at the screen.
+   A setup key is shown too, for typing in by hand if the camera won't cooperate.
+3. They type the 6-digit code the app shows, and two-factor is on.
+4. The board shows **8 backup codes**, once. Each works one time in place of the app (lost or dead phone).
+
+**Logging in** then asks for the password, then the code. Codes change every 30 seconds; the board accepts the
+current one and the ones just before and after (phone clocks drift), and never accepts the same code twice.
+After 3 wrong codes the login stops.
+
+**For the caller** (Your Settings > Two-Factor, once it is on), each needing a current code or a backup code:
+**New Phone** (set it up again; the old phone stops working once the new one is confirmed), **New Backup Codes**,
+and **Turn Off**.
+
+**For you, the reset tool:** if a caller loses their phone *and* their backup codes, open their account in
+Sysop Admin > Users and press **Reset 2FA**, or press **Reset 2FA** next to them on the Control Panel's Users
+tab. Their next login needs only the password, and they can set up a new phone. Make sure it is really them
+first (the log records every reset).
+
+**The name in the app:** Board Settings > **Authenticator name** (or the Control Panel's Settings tab) sets what
+the board is called in callers' authenticator apps, e.g. "Ripscout BMX". Blank means the BBS name. Phones that
+are already set up keep the name they were given.
+
+The secret key behind each caller's codes is kept in `users.json`, so protect your backups of the data folder
+like you would a password list. Backup codes are stored only as salted hashes.
+
+## 8. Email and notifications
 
 **Email** on the main menu is private mail between members: a mailbox (blue = unread), Read, Reply (with the
 letter quoted), Delete and Write a Letter. Letters are kept in `mail.json`.
@@ -279,7 +312,7 @@ back exactly as it was. When the caller is at a menu, **clicking** the notificat
 (the mailbox, or the game) and then returns to the same screen. During a real-time game, notifications wait
 until the game is over.
 
-## 8. File Libraries
+## 9. File Libraries
 
 **File Libraries** on the main menu is the download (and upload) section. Callers pick a library, click a file
 to see its details and description, and press **Download (Zmodem)**. DialComm (and most terminals) start
@@ -295,7 +328,7 @@ terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl
 - **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
 - Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
 
-## 9. BMX Games
+## 10. BMX Games
 
 From the main menu, **BMX Games** offers seven games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
@@ -323,7 +356,7 @@ From the main menu, **BMX Games** offers seven games played right in the termina
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
-## 10. BMX Newsmap
+## 11. BMX Newsmap
 
 **BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
 bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
@@ -337,7 +370,7 @@ with a phone camera to open the full article.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
-## 11. The data folder
+## 12. The data folder
 
 | File | Contents |
 |---|---|
@@ -355,7 +388,7 @@ with a phone camera to open the full article.
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 12. Troubleshooting
+## 13. Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -368,6 +401,7 @@ leave a half-written file behind. To restore a backup, close the board, copy the
 | Echomail says "cannot reach the hub" | Check the hub host and port with the hub's sysop. Some networks use a port other than 24554 |
 | Echomail says "hub refused the password" | Re-type the session password exactly as the hub's sysop gave it (it is case-sensitive) |
 | An echo arrives but no area appears | New echoes is set to "ignore": give an area that echo tag, or change the setting |
+| A caller's authenticator codes never work | Their phone's clock is off. Turn on automatic date and time on the phone. Or reset their 2FA |
 | Usenet says "login refused" | Check the login name and password with your news provider. Some servers need encryption (port 563) |
 | Usenet posts are refused | Some free servers only allow posting after you confirm your account by email, or limit posts per day |
 | `finger` from outside gets no answer | Forward port 79 to the server and allow it in Windows Firewall. Some internet providers block port 79 |
