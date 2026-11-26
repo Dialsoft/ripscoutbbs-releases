@@ -305,6 +305,8 @@ RipscoutBBS uses the two kinds of sound BBSes had:
 - **ANSI music**, tunes in the GW-BASIC "PLAY" notation: a riff on the spinning-wheel welcome screen, a chime
   for new mail, a fanfare for game invitations and high scores, and a few jingles in the games. In DialComm,
   turn on **ANSI Music** to hear them (the status line offers it the first time a tune arrives).
+  Because most terminals keep ANSI music off until asked, the board reminds callers: a line on the welcome
+  screen, a one-time notification on each caller's first visit, and a note on the Showcase Sound page.
 
 Each caller can turn the board's sounds off or on in **Your Settings > Sound**. The **RIP Showcase** has a
 Sound page (page 8) with a button for every effect and a few tunes.
