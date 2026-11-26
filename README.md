@@ -25,7 +25,8 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
 - **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
-- **BMX Games**: *Dirt Jumper* (side-scroller) and *Cone Blaster* (shooter), with high score tables
+- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker) and *Block Drop* (falling blocks), with high score tables
+- **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
 - **BMX Newsmap**: BMX news as a RIP treemap, with a **QR code** on every story to open it on your phone
 - **Auto-update**: checks this page every 6 hours, verifies each download, and installs only when nobody is online
 
@@ -38,10 +39,13 @@ It's one Windows EXE (about 3.7 MB) with nothing to install.
 |---|---|
 | ![Cone Blaster](screenshots/cone-blaster.png) | ![Sysop Admin](screenshots/sysop-admin.png) |
 | ![BMX Newsmap](screenshots/newsmap.png) | ![Story with QR code](screenshots/news-story-qr.png) |
+| ![Spoke Breaker](screenshots/spoke-breaker.png) | ![Block Drop](screenshots/block-drop.png) |
+
+![Control Panel](screenshots/control-panel.png)
 
 ## Quick start
 
-1. Put `RipscoutBBS.exe` in its own folder (for example `C:\RipscoutBBS`) and double-click it.
+1. Put `RipscoutBBS.exe` in its own folder (for example `C:\RipscoutBBS`) and double-click it. The Control Panel opens and the wheel icon appears in the system tray.
 2. Allow the port in Windows Firewall (Command Prompt as Administrator):
    `netsh advfirewall firewall add rule name="RipscoutBBS" dir=in action=allow protocol=TCP localport=23`
 3. In DialComm, add a Telnet entry for the server with **Emulation: RIPscrip**.

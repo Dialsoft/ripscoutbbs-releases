@@ -6,12 +6,28 @@ managing it from inside the BBS.
 ## 1. Installing
 
 1. Make a folder such as `C:\RipscoutBBS` and put `RipscoutBBS.exe` in it.
-2. Double-click `RipscoutBBS.exe`. A console window titled **RipscoutBBS 1.0.0** opens. It shows:
-   - the board name and data folder,
-   - the telnet port (23 unless you change it),
-   - the addresses callers can use (`telnet 192.168.x.x 23` and so on),
-   - one line per call ("Node 1: call from ...", "Node 1: Marc hung up").
-3. Leave the window open. **Closing the window shuts the board down.**
+2. Double-click `RipscoutBBS.exe`. There is no console window. Instead:
+   - the **wheel icon** appears in the system tray, next to the clock (Windows may tuck it under the ^ arrow:
+     drag it onto the taskbar to keep it visible). Hover over it to see how many callers are online.
+   - the **Control Panel** window opens.
+3. **Right-click the tray icon** for: Open Control Panel, Open Data Folder, Check for Updates and
+   Shut Down RipscoutBBS. Double-clicking the icon also opens the Control Panel.
+4. Starting the EXE a second time doesn't start a second board. It just opens the running board's Control Panel.
+
+### The Control Panel
+The Control Panel is a window on the server PC (it uses Microsoft Edge's app mode, so it has no browser bars).
+It is served to this PC only and protected by a secret key that changes every time the board starts, so
+nobody else, on the network or on this PC, can use it. Hover over anything for an explanation.
+
+| Tab | What it does |
+|---|---|
+| Dashboard | Callers online (with Page and Disconnect), broadcast to everyone, calls today and in total, members, messages, uptime, a 14-day calls chart, and the addresses callers can use |
+| Users | Search accounts, change security levels, lock or unlock, reset passwords, delete |
+| Settings | Every board setting, including System News and Board Rules. Saving applies them live |
+| BMX News | The Newsmap feed list and a Refresh button |
+| High Scores | Top 10 for all four BMX Games |
+| Updates | Version, latest on GitHub, Check now, Install now, auto-install on/off |
+| Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
 the board remembers is in that folder (see section 7). To back up the board, copy that folder.
@@ -131,6 +147,10 @@ From the main menu, **BMX Games** offers two real-time games played right in the
   The track speeds up the longer you ride. You get 3 lives.
 - **Cone Blaster** (shooter): Left/Right or A/D rides, and SPACE or Up squirts water. Cones are worth 10 and
   tires 25. Getting hit costs a life.
+- **Spoke Breaker** (brick breaker): Left/Right or A/D moves the handlebars, and SPACE launches the wheel. Where
+  the wheel hits the bars sets its angle. Clear the wall for +500 and a faster next level.
+- **Block Drop** (falling blocks): Left/Right moves, Up or W rotates, Down or S soft-drops, and SPACE hard-drops.
+  Lines score 40/100/300/1200 times the level, and the blocks fall faster every 10 lines.
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game.
 
 ## 8. BMX Newsmap
@@ -164,7 +184,8 @@ leave a half-written file behind. To restore a backup, close the board, copy the
 
 | Problem | Fix |
 |---|---|
-| Console says "Cannot listen on port 23" | Another program (often a Windows telnet server) is using the port. Stop it, or start with `-port 2323` |
+| The Control Panel's top-right badge says "NOT listening" | Another program (often a Windows telnet server) is using the port. Stop it, or change the port in Settings |
+| I can't see the tray icon | Click the ^ arrow next to the clock. Drag the wheel icon onto the taskbar to keep it visible |
 | Callers see plain text instead of graphics | Their terminal isn't in RIPscrip mode. In DialComm, set the entry's Emulation to RIPscrip |
 | Outside callers can't connect but local ones can | Check the firewall rule and router forwarding; try a port other than 23 |
 | Forgot the Sysop password | Close the board. In `users.json`, set another staff account's `"level"` to 100, log in as that account and reset the Sysop password. If there is no other staff account, rename `users.json` to start a fresh user list (the boards and settings are kept) |
