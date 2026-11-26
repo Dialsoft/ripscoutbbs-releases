@@ -29,10 +29,11 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | BMX News | The Newsmap feed list and a Refresh button |
 | High Scores | Top 10 for every BMX Game |
 | Updates | Version, latest on GitHub, Check now, Install now, auto-install on/off |
+| Audit | The audit trail: filter by kind, search, and save as CSV (see *Audit Trail* below) |
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
 
 The first time it runs, RipscoutBBS creates a folder named `RipscoutBBS-data` next to the EXE. Everything
-the board remembers is in that folder (see section 13). To back up the board, copy that folder.
+the board remembers is in that folder (see section 14). To back up the board, copy that folder.
 
 ### Command-line options (optional)
 
@@ -199,6 +200,25 @@ RipscoutBBS answers **finger**, the classic internet "who's on?" service, on por
 Finger never shows IP or email addresses. Change the port, or set it to 0 to turn finger off, in Board Settings.
 Callers outside your network need port 79 forwarded to the server, like the telnet port.
 
+### Audit Trail
+A permanent record of who did what. Each entry has the time, the kind, who did it (a member, "Control
+Panel" or "System"), the node and IP address when it came from a caller, what happened and the details.
+
+| Kind | What it records |
+|---|---|
+| Logins | Logins and logoffs (with time online), failed logins (wrong password or no such name), new signups |
+| Security | Password changes and resets, two-factor on/off/reset, backup-code sign-ins, failed two-factor codes, locked and deleted accounts |
+| Sysop | Every settings change with its old and new value (passwords show only "changed"), security levels, disconnects, pages, broadcasts |
+| Files | Uploads, downloads, deleted files, new libraries |
+| Messages | Deleted messages, email and message areas |
+| Network | Chat links connecting or refused, echomail and Usenet failures |
+| System | Board start-up, update installs, rejected updates |
+
+In RIP: **Sysop Admin > Audit Trail** lists it newest first. Click a kind to filter, **Search** for a name, IP
+address or word, and click an entry for all of its details. In the Control Panel: the **Audit** tab, with the
+same filters and **Save as CSV** for Excel. The trail is kept in `audit.log` in the data folder (it is only
+ever added to, and moves to `audit-old.log` at 20 MB).
+
 ### Nodes & Broadcast
 Shows every connected node with its address and what it's doing. Click a node to **disconnect** it (the
 caller sees a short goodbye notice first). **Broadcast Message** pops a notice up on every caller's
@@ -264,7 +284,25 @@ Security: the password never crosses the network (each side proves it knows the 
 challenge), and everything on the link is encrypted with AES-256-GCM. Messages travel one hop, so to join
 three boards, link each pair.
 
-## 7. Two-factor sign-in (Google Authenticator)
+## 7. Stats
+
+**BBS Stats** on the main menu shows the board by the numbers: calls, members, messages, files, downloads
+and words typed, a chart of calls over the last 14 days, the busiest hours of the day, and records like the
+busiest moment ever, time spent online and the newest member. **Leaderboards** shows the top 5 for calls,
+posts, words typed, time online, downloads and uploads.
+
+**My Stats** (from BBS Stats) shows a caller everything about themselves: logins, time online, longest visit,
+calling streak (days in a row) and best streak, posts, words typed (in posts, email and chat), chat lines,
+email sent and received, uploads and downloads, games played and their favorite, best high-score placing,
+Word Duels won and lost, their rank by calls, charts of when they call (hour and weekday), and 10
+**badges** to earn (Regular, Night Owl, Wordsmith, Chatterbox, Collector, Contributor, Pen Pal, Champion,
+Duelist and Veteran; click one to see how).
+
+Sysops can see any member's stats with the **Stats** button on their account in Sysop Admin > Users.
+Logins and posts count from the start; the newer counters (time online, words, transfers and so on) count
+from the first visit after version 1.9.0.
+
+## 8. Two-factor sign-in (Google Authenticator)
 
 Any caller can protect their account with a second step at login: a 6-digit code from an authenticator app on
 their phone. Google Authenticator is free; Microsoft Authenticator, Authy, 1Password and the like work too.
@@ -296,7 +334,7 @@ are already set up keep the name they were given.
 The secret key behind each caller's codes is kept in `users.json`, so protect your backups of the data folder
 like you would a password list. Backup codes are stored only as salted hashes.
 
-## 8. Sound
+## 9. Sound
 
 RipscoutBBS uses the two kinds of sound BBSes had:
 - **RIPscrip sound effects**, built into RIPscrip 1.54: $BEEP$, $BLIP$, $ALARM$, $PHASER$, $REVPHASER$ and $MUSIC$.
@@ -311,7 +349,7 @@ RipscoutBBS uses the two kinds of sound BBSes had:
 Each caller can turn the board's sounds off or on in **Your Settings > Sound**. The **RIP Showcase** has a
 Sound page (page 8) with a button for every effect and a few tunes.
 
-## 9. Email and notifications
+## 10. Email and notifications
 
 **Email** on the main menu is private mail between members: a mailbox (blue = unread), Read, Reply (with the
 letter quoted), Delete and Write a Letter. Letters are kept in `mail.json`.
@@ -327,7 +365,7 @@ back exactly as it was. When the caller is at a menu, **clicking** the notificat
 (the mailbox, or the game) and then returns to the same screen. During a real-time game, notifications wait
 until the game is over.
 
-## 10. File Libraries
+## 11. File Libraries
 
 **File Libraries** on the main menu is the download (and upload) section. Callers pick a library, click a file
 to see its details and description, and press **Download (Zmodem)**. DialComm (and most terminals) start
@@ -343,7 +381,7 @@ terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl
 - **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
 - Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
 
-## 11. BMX Games
+## 12. BMX Games
 
 From the main menu, **BMX Games** offers seven games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
@@ -371,7 +409,7 @@ From the main menu, **BMX Games** offers seven games played right in the termina
 - Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
-## 12. BMX Newsmap
+## 13. BMX Newsmap
 
 **BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
 bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
@@ -385,7 +423,7 @@ with a phone camera to open the full article.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
-## 13. The data folder
+## 14. The data folder
 
 | File | Contents |
 |---|---|
@@ -396,6 +434,7 @@ with a phone camera to open the full article.
 | `content.json` | Menus, icons and backgrounds made in the Content Editor |
 | `files.json`, `files\` | The File Libraries list and the files themselves (one folder per library) |
 | `mail.json` | Email between members |
+| `audit.log` | The audit trail (one entry per line; `audit-old.log` holds older ones) |
 | `usenet\seen.json` | Usenet: Message-IDs already filed (duplicate check) |
 | `ftn\` | Echomail: `outbound` (packets waiting to go), `inbound` (just received), `bad` (files that were not mail), `seen.json` (duplicate check) |
 | `RipscoutBBS.log` | The same log lines shown in the console |
@@ -403,7 +442,7 @@ with a phone camera to open the full article.
 Files are saved safely: each one is written to a temporary file and then swapped in, so a power cut can't
 leave a half-written file behind. To restore a backup, close the board, copy the folder back and start it again.
 
-## 14. Troubleshooting
+## 15. Troubleshooting
 
 | Problem | Fix |
 |---|---|

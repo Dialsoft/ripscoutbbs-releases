@@ -32,6 +32,8 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Usenet newsgroups**: each newsgroup becomes a message area; read and post over NNTP (with encryption and login)
 - **Two-factor sign-in** with Google Authenticator: the setup QR code is drawn right in RIP, with backup codes, a sysop reset tool and a configurable name in the app
 - **Sound**: RIPscrip's own sound effects in the games and notifications, ANSI music jingles, and a Sound page in the RIP Showcase
+- **Stats**: BBS Stats with charts and leaderboards, and My Stats for every caller (time online, words typed, transfers, streaks, badges)
+- **Audit trail** of logins, security events, sysop actions and every settings change, in RIP and on the Control Panel's Audit tab
 - **Finger server**: `finger @yourboard` shows who's on; `finger name@yourboard` shows a member and their plan
 - **Content Editor in RIP**: edit every menu (items, icons, modules, submenus), draw pixel icons, swap backgrounds, all live
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
@@ -59,7 +61,8 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 | ![Usenet setup](screenshots/usenet.png) | ![A Usenet article](screenshots/usenet-article.png) |
 | ![A notification on the main menu](screenshots/notification.png) | ![A Word Duel invitation](screenshots/word-duel-invite.png) |
 | ![Two-factor setup with a QR code drawn in RIP](screenshots/two-factor-setup.png) | ![Two-factor code at login](screenshots/two-factor-login.png) |
-| ![RIP Showcase: Sound](screenshots/showcase-sound.png) | |
+| ![RIP Showcase: Sound](screenshots/showcase-sound.png) | ![BBS Stats](screenshots/bbs-stats.png) |
+| ![My Stats with badges](screenshots/my-stats.png) | ![Audit Trail](screenshots/audit-trail.png) |
 
 ![Control Panel](screenshots/control-panel.png)
 
