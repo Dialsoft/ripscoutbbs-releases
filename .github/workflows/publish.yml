@@ -1,0 +1,27 @@
+# Publishes a GitHub Release whenever VERSION changes on main.
+# The release is tagged v<VERSION> and carries the files in download/ (the EXE and the explainer video),
+# so the "latest release" link on the README always points at the newest RipscoutBBS.exe.
+name: Publish release
+on:
+  push:
+    branches: [main]
+    paths: [VERSION]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create or update the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="v$(tr -d '[:space:]' < VERSION)"
+          if gh release view "$V" >/dev/null 2>&1; then
+            gh release upload "$V" download/RipscoutBBS.exe download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md --clobber
+          else
+            gh release create "$V" download/RipscoutBBS.exe download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md \
+              --title "RipscoutBBS ${V#v}" --notes-file download/RELEASE-NOTES.md --latest
+          fi
