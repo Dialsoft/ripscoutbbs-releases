@@ -550,6 +550,14 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
   ask about files or start a transfer are removed, and clickable areas are cleared. A picture can only draw.
 - The same picture in two libraries (same file name and size) is listed once.
 
+### Input boxes
+
+Every screen with more than one input box (Login, Change Password, Email, posting a message, Your Details)
+works like any Windows dialog: **Tab** or **Down** goes to the next box, **Shift+Tab** or **Up** to the
+previous one, **clicking** a box puts the cursor there, and what's already typed stays put. **Enter** moves on,
+or submits when it's the last box or every box is filled in; the screen's main button (Login, Save...) submits
+from anywhere; **Esc** or **Cancel** cancels. In the signup wizard, Shift+Tab goes back a step.
+
 ### The classic RIP art pack (one click)
 
 Control Panel > **Files** > **Add the classic RIP art pack** (also a checkbox in the first-run setup) adds 88
