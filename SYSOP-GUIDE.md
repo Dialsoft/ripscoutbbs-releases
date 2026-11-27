@@ -349,7 +349,7 @@ RipscoutBBS uses the two kinds of sound BBSes had:
 - **RIPscrip sound effects**, built into RIPscrip 1.54: $BEEP$, $BLIP$, $ALARM$, $PHASER$, $REVPHASER$ and $MUSIC$.
   The games use them (a blip when you jump or hit something, a phaser zap when you crash, Turbo Lap's start
   lights), and so do pages (beep) and sysop broadcasts (alarm). In DialComm they follow the **Bell** setting.
-- **ANSI music**, tunes in the GW-BASIC "PLAY" notation: a riff on the spinning-wheel welcome screen, a chime
+- **ANSI music**, tunes in the GW-BASIC "PLAY" notation: a riff on the welcome screen, a chime
   for new mail, a fanfare for game invitations and high scores, and a few jingles in the games. In DialComm,
   turn on **ANSI Music** to hear them (the status line offers it the first time a tune arrives).
   Because most terminals keep ANSI music off until asked, the board reminds callers: a line on the welcome

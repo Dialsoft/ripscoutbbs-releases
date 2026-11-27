@@ -24,7 +24,7 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Sysop Admin, all in RIP**: users, board settings, message areas, nodes and broadcasts, statistics, news and rules
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
-- **BMX theme**: a spinning 5-spoke mag wheel on the welcome screen
+- **BMX theme**: a neon BMX bike with two spinning mag wheels on the welcome screen
 - **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks), *Turbo Lap* (3-D arcade road racer), *Word Wheelie* (word game with Word Duels) and *Solitaire*, with high score tables
 - **Email** between members, and **notifications on any screen** for new mail, game invites, pages and broadcasts. Click one to open it
 - **File Libraries**: browse, search, download and upload files with built-in **Zmodem** (DialComm starts receiving by itself)
