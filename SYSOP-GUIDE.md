@@ -480,7 +480,7 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
   - **Run**: solve word after word. Each word scores 100 per unused guess, plus 100. The first miss ends the run.
   - **Duel**: pick a caller who is online. They get a notification ("Marc challenges you to Word Wheelie!") and
     click it to play the same word. When both have played, both get a notification saying who won.
-- **Solitaire** (Klondike, draw one): drag a card where it goes (DialComm 1.9.5 or newer), or click a card, then click where it goes. Click a card twice to send it to
+- **Solitaire** (Klondike, draw one): drag a card where it goes, or click a card, then click where it goes. In DialComm 1.9.6 or newer the card follows the mouse as a see-through ghost and the pile under it turns gray. Click a card twice to send it to
   its foundation. Click the deck to turn a card (or turn the pile back over). D draws, U undoes, A sends
   everything it can to the foundations, N deals again. Classic scoring, plus a time bonus when you win, and the
   bouncing-cards victory lap.
