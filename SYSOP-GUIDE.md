@@ -149,7 +149,7 @@ Click a row (or press its letter) to change it.
 | New user level | Click to cycle New User / Validated / Trusted |
 | Allow new signups | When OFF, the welcome screen shows "Signups Closed" |
 | Require email at signup | When OFF, email is optional |
-| Authenticator name | The name callers see for this board in Google Authenticator. Blank = the BBS name. Changes apply to new setups only |
+| Two-factor sign-in | Who must use an authenticator app (Optional / Required for sysops / Required for everyone), and the name callers see for this board in the app (blank = the BBS name; changes apply to new setups only) |
 | Finger server port | 79 is standard; 0 turns finger off. See *Finger* below |
 | Theme pack | How the board looks: Generic or BMX, with a preview of each. See *Theme packs* above |
 
@@ -373,7 +373,18 @@ from the first visit after version 1.9.0.
 Any caller can protect their account with a second step at login: a 6-digit code from an authenticator app on
 their phone. Google Authenticator is free; Microsoft Authenticator, Authy, 1Password and the like work too.
 
-**Turning it on** (Your Settings > Two-Factor):
+**At signup:** the last step of New User Signup offers it right away (the QR code below), with **Skip for
+now**. Members who skip can turn it on later.
+
+**Who must use it** (Board Settings > **Two-factor sign-in** in RIP, or the Control Panel's Settings tab), live:
+- **Optional** (the default): offered at signup, members can skip it.
+- **Required for sysops**: every sysop account must have it. A sysop without it is walked through setup right
+  after logging in.
+- **Required for everyone**: every member must have it. Anyone without it is walked through setup after
+  logging in; if they leave without finishing, they are told why and logged off. Members without a
+  smartphone can't get in, so only choose this if all your callers have one.
+
+**Turning it on** (Your Settings > Two-Factor, at signup, or when required):
 1. The board draws a **QR code** right on the RIP screen.
 2. The caller opens the app, taps **+**, picks **Scan a QR code** and points the phone at the screen.
    A setup key is shown too, for typing in by hand if the camera won't cooperate.
@@ -393,7 +404,8 @@ Sysop Admin > Users and press **Reset 2FA**, or press **Reset 2FA** next to them
 tab. Their next login needs only the password, and they can set up a new phone. Make sure it is really them
 first (the log records every reset).
 
-**The name in the app:** Board Settings > **Authenticator name** (or the Control Panel's Settings tab) sets what
+**The name in the app:** Board Settings > **Two-factor sign-in** > **Change Name** (or the Control Panel's
+Settings tab) sets what
 the board is called in callers' authenticator apps, e.g. "Retro Hub BBS". Blank means the BBS name. Phones that
 are already set up keep the name they were given.
 
