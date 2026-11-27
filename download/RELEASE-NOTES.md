@@ -1,7 +1,13 @@
-**RipscoutBBS 2.1.1: Updates that switch over cleanly**
+**RipScout BBS 2.2.0: Theme packs**
 
-- **No more two copies running after an update.** The new version now waits for the old one to quit before it opens the telnet port. If the old copy is still running after 15 seconds, the new one closes it. This also works when updating *from* an older version.
-- **The Control Panel stays open through an update.** It keeps the same address, so during the restart it shows "Restarting? Reconnecting...", then carries on by itself and says "Update finished: now running version X". No need to reopen it.
-- **Install Now always installs the newest version.** Before, if a newer release came out after one was already downloaded, the board could install the older download. Now the older download is thrown away and the newest is fetched.
-- The log and the audit trail say exactly what happened during each update.
-- Nothing else changed. Your settings, users and messages are untouched.
+RipScout is the BBS software, and how a board looks is now up to its sysop. A **theme pack** dresses the board. Every pack has the same menus, games and features.
+
+- **Two packs to start:**
+  - **Generic** (recommended): a globe turning inside a ring of chasing lights, over mountains and the neon grid, with technology and retro-computing news. The menu says **Games** and **Newsmap**.
+  - **BMX**: Dialsoft's own showcase look, with the neon BMX race bike and its spinning mag wheels, plus BMX news. The menu says **BMX Games** and **BMX Newsmap**.
+- **The welcome screen's big title is now your board's name** (it used to always say RIPSCOUT), with "Powered by RipScout BBS software" underneath.
+- **First-run setup:** a new board opens the Control Panel with a setup screen for the board name, sysop name, location, tagline, port and theme pack. Generic is preselected.
+- **Switch any time, live:** click a pack in the Control Panel's Settings tab, or use **Sysop Admin > Board Settings > Theme pack** in RIP, which has a Preview button for each pack. Menu items and the first file library that still have the old pack's names are renamed. Anything you renamed yourself is left alone, and so is your own news feed list.
+- **Your board keeps its look:** boards made with earlier versions stay on BMX automatically and are not asked to set up again.
+- The Control Panel's "BMX News" tab is now **News Feeds**.
+- **Solitaire:** the hint line now says you can drag cards. Dragging needs DialComm 1.9.5 or newer.

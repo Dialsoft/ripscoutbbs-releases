@@ -1,13 +1,15 @@
-# RipscoutBBS
+# RipScout BBS
 
-**A bulletin board system drawn entirely in RIPscrip 1.54 graphics.** Every screen is vector
+**BBS software drawn entirely in RIPscrip 1.54 graphics.** Every screen is vector
 graphics with clickable buttons, from the welcome screen and the signup wizard to the full Sysop
 Admin system. It's built to show off RIPscrip as far as it goes, and made for
 [DialComm](https://github.com/Dialsoft/dialcomm-releases).
 
-*By Dialsoft LLC, Wharton NJ.*
+*By Dialsoft LLC, Wharton NJ.* Dialsoft's own showcase board, **BMX BBS**, runs RipScout with the BMX theme pack.
 
-![Welcome screen](screenshots/welcome.png)
+| Generic theme pack (recommended) | BMX theme pack |
+|---|---|
+| ![Generic welcome screen](screenshots/welcome.png) | ![BMX welcome screen](screenshots/welcome-bmx.png) |
 
 ## Download
 
@@ -24,8 +26,9 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Sysop Admin, all in RIP**: users, board settings, message areas, nodes and broadcasts, statistics, news and rules
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
-- **BMX theme**: a neon BMX bike with two spinning mag wheels on the welcome screen
-- **BMX Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks), *Turbo Lap* (3-D arcade road racer), *Word Wheelie* (word game with Word Duels) and *Solitaire*, with high score tables
+- **Theme packs**: choose how your board looks during setup and switch any time, live. **Generic** (recommended: a turning globe in a ring of chasing lights, with tech and retro-computing news) or **BMX** (a neon BMX race bike with spinning mag wheels, with BMX news). Every pack has the same menus, games and features
+- **First-run setup** in the Control Panel: board name, sysop, location, tagline, port and theme pack in one screen
+- **Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks), *Turbo Lap* (3-D arcade road racer), *Word Wheelie* (word game with Word Duels) and *Solitaire*, with high score tables
 - **Email** between members, and **notifications on any screen** for new mail, game invites, pages and broadcasts. Click one to open it
 - **File Libraries**: browse, search, download and upload files with built-in **Zmodem** (DialComm starts receiving by itself)
 - **Echomail**: share message areas with **fsxNet, FidoNet** and other FTN networks through a built-in binkp mailer, set up in RIP or the Control Panel
@@ -65,6 +68,8 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 | ![My Stats with badges](screenshots/my-stats.png) | ![Audit Trail](screenshots/audit-trail.png) |
 
 ![Control Panel](screenshots/control-panel.png)
+
+![First-run setup: board details and the theme pack](screenshots/setup.png)
 
 ## Quick start
 

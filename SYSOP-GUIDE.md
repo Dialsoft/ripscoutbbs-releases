@@ -1,7 +1,11 @@
-# RipscoutBBS Sysop Guide
+# RipScout BBS Sysop Guide
 
-This guide covers everything you need to run RipscoutBBS: installing it, letting callers reach it, and
+RipScout is BBS software: a RIPscrip graphics BBS that runs as one Windows program. This guide covers
+everything you need to run a board with it: installing it, setting it up, letting callers reach it, and
 managing it from inside the BBS.
+
+How a board looks is up to you: RipScout comes with **theme packs** (see *Theme packs* below). Dialsoft's own
+showcase board, BMX BBS, uses the BMX pack; the **Generic** pack is the recommended starting point.
 
 ## 1. Installing
 
@@ -13,6 +17,37 @@ managing it from inside the BBS.
 3. **Right-click the tray icon** for: Open Control Panel, Open Data Folder, Check for Updates and
    Shut Down RipscoutBBS. Double-clicking the icon also opens the Control Panel.
 4. Starting the EXE a second time doesn't start a second board. It just opens the running board's Control Panel.
+
+### First-run setup
+The first time it starts, the Control Panel opens with **Welcome to RipScout!**. Fill in:
+- **Board name** (the big title on the welcome screen), **your sysop name**, **location** (optional) and a
+  **tagline**;
+- the **telnet port** callers connect to (23 is standard);
+- a **theme pack**: click one of the pictures. **Generic** is recommended and preselected.
+
+Press **Finish setup**. Everything can be changed later in the Settings tab. (If you skip the Control Panel and
+sign up in RIP first, the theme pack chooser appears once after your first login as sysop instead.)
+
+### Theme packs
+A theme pack is the look a board is dressed in. Every pack has **exactly the same menus, games and features**.
+Only these change:
+
+| | Generic (recommended) | BMX |
+|---|---|---|
+| Welcome screen | A turning globe in a ring of chasing lights, mountains, neon grid | A neon 1980s BMX race bike with spinning mag wheels, dirt-jump hills, a rider |
+| Welcome tune | Its own riff | A BMX riff |
+| Games room on the menu | **Games** (joystick icon) | **BMX Games** (bike icon) |
+| Newsmap on the menu | **Newsmap**: technology and retro-computing news | **BMX Newsmap**: BMX news |
+| First file library | Pictures & Videos | BMX Videos & Pictures |
+
+Both welcome screens show **your board's name** as the big title and "Powered by RipScout BBS software".
+
+**Switching packs** is live: in the Control Panel's **Settings** tab (click a pack), or in RIP under
+**Sysop Admin > Board Settings > Theme pack** (with a Preview button for each). Callers see it on their next
+screen. Menu items and the first file library that still have the old pack's names are renamed to the new
+pack's; anything you renamed yourself is left alone. The news feeds follow the pack unless you've set your own.
+
+Boards made before theme packs existed (2.1 and older) keep the BMX look automatically.
 
 ### The Control Panel
 The Control Panel is a window on the server PC (it uses Microsoft Edge's app mode, so it has no browser bars).
@@ -26,8 +61,8 @@ nobody else, on the network or on this PC, can use it. Hover over anything for a
 | Settings | Every board setting (including the finger port), System News and Board Rules. Saving applies them live |
 | Files | The File Libraries: drag files from Windows onto the box to add them, write descriptions, delete, make new libraries, scan folders |
 | Networks | FTN echomail (address, hub, passwords, Poll now, AreaFix) and Usenet (news server, login, Check now, Add group), each with a log of recent calls |
-| BMX News | The Newsmap feed list and a Refresh button |
-| High Scores | Top 10 for every BMX Game |
+| News Feeds | The Newsmap feed list (the theme pack's defaults until you change it) and a Refresh button |
+| High Scores | Top 10 for every game |
 | Updates | Version, latest on GitHub, the update setting (Ask me first / Automatic / Off), What's new, Check now, Install now |
 | Audit | The audit trail: filter by kind, search, and save as CSV (see *Audit Trail* below) |
 | Log | Everything logged since startup (also saved in `RipscoutBBS.log`) |
@@ -116,6 +151,7 @@ Click a row (or press its letter) to change it.
 | Require email at signup | When OFF, email is optional |
 | Authenticator name | The name callers see for this board in Google Authenticator. Blank = the BBS name. Changes apply to new setups only |
 | Finger server port | 79 is standard; 0 turns finger off. See *Finger* below |
+| Theme pack | How the board looks: Generic or BMX, with a preview of each. See *Theme packs* above |
 
 ### Message Areas
 **Add Area**, or click an area to rename it, change its description, change its read/post levels
@@ -268,7 +304,7 @@ in `content.json` in the data folder.
 
 - **Menus**: click a menu to edit it. You can:
   - **Add Item**: give it a label, then choose what it opens. That can be a *module* (Message Boards,
-    Teleconference, Who's Online, any single BMX game, the Newsmap, Your Settings, Sysop Admin, Goodbye...) or
+    Teleconference, Who's Online, any single game, the Newsmap, Your Settings, Sysop Admin, Goodbye...) or
     *another menu*.
   - Click an item to change its label, hotkey, icon, what it opens, or who can see it (minimum level), move it
     up or down, or delete it.
@@ -347,7 +383,7 @@ tab. Their next login needs only the password, and they can set up a new phone. 
 first (the log records every reset).
 
 **The name in the app:** Board Settings > **Authenticator name** (or the Control Panel's Settings tab) sets what
-the board is called in callers' authenticator apps, e.g. "Ripscout BMX". Blank means the BBS name. Phones that
+the board is called in callers' authenticator apps, e.g. "Retro Hub BBS". Blank means the BBS name. Phones that
 are already set up keep the name they were given.
 
 The secret key behind each caller's codes is kept in `users.json`, so protect your backups of the data folder
@@ -375,7 +411,7 @@ letter quoted), Delete and Write a Letter. Letters are kept in `mail.json`.
 
 **Notifications** pop up on any screen, top right, with a beep:
 - a **new letter** ("New email from Marc"),
-- a **game invitation** (a Word Duel challenge, see BMX Games),
+- a **game invitation** (a Word Duel challenge, see Games),
 - **pages** from other callers and **broadcasts** from the sysop,
 - at login, "You have mail" when letters are waiting.
 
@@ -392,7 +428,7 @@ receiving automatically: no menus, no protocol picking. **Upload a File** works 
 writes a one-line description, and DialComm notices the board is ready and asks which file to send (other
 terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl+Shift+U). **Search All Files** finds files by name or description in every library.
 
-- The board starts with three libraries: BMX Videos & Pictures, RIPscrip Art & Icons, Terminals & Utilities.
+- The board starts with three libraries: Pictures & Videos (BMX Videos & Pictures with the BMX pack), RIPscrip Art & Icons, Terminals & Utilities.
 - Each library is a folder in `RipscoutBBS-data\files\`. Copy files into a folder yourself and press
   **Scan Folders** (in RIP or the Control Panel) to list them. Or drag files onto the Control Panel's
   **Files** tab.
@@ -400,9 +436,9 @@ terminals: start a Zmodem upload; in DialComm that is Transfer > Send File, Ctrl
 - **Max upload size** is in Board Settings (default 50 MB). An upload that is cut off is thrown away.
 - Each file shows a download-time estimate (33.6k modem vs broadband) and a download count.
 
-## 12. BMX Games
+## 12. Games
 
-From the main menu, **BMX Games** offers seven games played right in the terminal:
+From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven games played right in the terminal:
 - **Dirt Jumper** (side-scroller): SPACE or Up jumps. Press T or Down in the air for a tabletop trick (+100).
   The track speeds up the longer you ride. You get 3 lives.
 - **Cone Blaster** (shooter): Left/Right or A/D rides, and SPACE or Up squirts water. Cones are worth 10 and
@@ -421,24 +457,27 @@ From the main menu, **BMX Games** offers seven games played right in the termina
   - **Run**: solve word after word. Each word scores 100 per unused guess, plus 100. The first miss ends the run.
   - **Duel**: pick a caller who is online. They get a notification ("Marc challenges you to Word Wheelie!") and
     click it to play the same word. When both have played, both get a notification saying who won.
-- **Solitaire** (Klondike, draw one): click a card, then click where it goes. Click a card twice to send it to
+- **Solitaire** (Klondike, draw one): drag a card where it goes (DialComm 1.9.5 or newer), or click a card, then click where it goes. Click a card twice to send it to
   its foundation. Click the deck to turn a card (or turn the pile back over). D draws, U undoes, A sends
   everything it can to the foundations, N deals again. Classic scoring, plus a time bonus when you win, and the
   bouncing-cards victory lap.
-- Each game keeps a top-10 high score table, shown on the BMX Games screen. Q or Esc quits a game (Esc in
+- Each game keeps a top-10 high score table, shown on the games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
-## 13. BMX Newsmap
+## 13. Newsmap
 
-**BMX Newsmap** on the main menu shows current BMX news as a treemap. Each story is a tile: newer stories get
-bigger tiles, the color is the category (Racing, Freestyle, Bikes & Gear, Events & Video, Other), and bright
+**Newsmap** on the main menu (**BMX Newsmap** with the BMX pack) shows current news as a treemap. Each story is
+a tile: newer stories get bigger tiles, the color is the topic, and bright
 tiles are from the last 24 hours. Click a tile to read the summary. The story page has a **QR code**: scan it
 with a phone camera to open the full article.
 
 - The board reads the news feeds every 30 minutes (and when someone clicks **Refresh**).
-- **Sysop Admin > News & Rules > BMX News Feeds** edits the feed list: one RSS or Atom link per line.
-  WordPress sites usually have their feed at `/feed/`. Save, and the map refreshes right away. Erase every line
-  to go back to the default list.
+- What the news is about comes from the theme pack. Generic reads technology and retro-computing sources
+  (topics: Tech & Gadgets, Retro & BBS, Games, Science & Space, Other); BMX reads BMX sites (Racing,
+  Freestyle, Bikes & Gear, Events & Video, Other).
+- **Sysop Admin > News & Rules > News Feeds** (or the Control Panel's News Feeds tab) edits the feed list: one
+  RSS or Atom link per line. WordPress sites usually have their feed at `/feed/`. Save, and the map refreshes
+  right away. Erase every line to go back to the theme pack's default list.
 - A feed that fails is skipped and logged in the console, and the rest still show. The status line under the
   map says how many feeds answered.
 
@@ -449,7 +488,7 @@ with a phone camera to open the full article.
 | `config.json` | Board settings |
 | `users.json` | Accounts. Passwords are stored only as salted PBKDF2-SHA256 hashes (210,000 rounds), so nobody (including you) can read them |
 | `boards.json` | Message areas and messages |
-| `stats.json` | Calls per day and the BMX Games high scores |
+| `stats.json` | Calls per day and the games' high scores |
 | `content.json` | Menus, icons and backgrounds made in the Content Editor |
 | `files.json`, `files\` | The File Libraries list and the files themselves (one folder per library) |
 | `mail.json` | Email between members |
