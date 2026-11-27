@@ -1,7 +1,11 @@
-**RipScout BBS 2.4.0: The board's messages are yours to change**
+**RipScout BBS 2.5.0: RIP Art Gallery**
 
-- **26 messages are now editable:** the login prompt and login errors, the "Welcome back" title, the new-member and first-sysop welcomes, the goodbye screen, disconnected-by-sysop, idle timeout, all-lines-busy, what callers without RIPscrip are told, the Teleconference join and leave lines, page sent, message posted, upload received, file missing, and the last "Installing version ... now" message during an update.
-- **Where to change them:** the new **Texts** tab in the Control Panel (edit and click away), or **Sysop Admin > News & Rules > Texts** in RIP, where you can see what each one is for, its built-in text and exactly what callers will see.
-- **Fill-ins:** `{board}`, `{sysop}`, `{name}`, `{node}`, plus extras like `{level}`, `{line}`, `{minutes}` and `{version}` where they make sense.
-- **Live, with a way back:** callers see a change from their next screen on, and **Built-in** restores the original. Every change goes in the audit trail.
-- Callers without RIPscrip now see your board's name and tagline at the top of their screen (it used to always say RipscoutBBS).
+- **A new Art Gallery in the RIP Showcase** (Showcase > Art Gallery) shows full-screen RIPscrip pictures.
+- **Three built-in, animated pieces:**
+  - **Neon Skyline:** city windows switch on and off, a neon "DIAL IN" sign flickers, the river shimmers.
+  - **Ocean Sunset:** a striped synthwave sun, palm trees drawn with Bezier curves, a glittering sea.
+  - **Aurora:** northern lights ripple over snowy mountains and in the lake below.
+  - All the motion is palette cycling, a few dozen bytes per frame.
+- **Your own art:** every .RIP file in a file library the caller can download appears in the gallery. Upload .RIP art, or copy it into a library folder and use Scan Folders. Title, artist and group come from the file's SAUCE record.
+- **Safe to show:** uploaded pictures are cleaned first, so a picture can only draw. It can't make the caller's terminal type to the board or start a transfer.
+- **Getting around:** click or Space for the next picture, P for the previous one, Q to go back.

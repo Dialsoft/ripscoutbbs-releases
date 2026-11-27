@@ -475,6 +475,24 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
 - Each game keeps a top-10 high score table, shown on the games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
+## RIP Art Gallery
+
+**RIP Showcase > Art Gallery** shows full-screen RIPscrip pictures:
+- **Three built-in, animated pieces** drawn by RipScout: *Neon Skyline* (windows switch on and off, a
+  flickering neon sign, shimmering water), *Ocean Sunset* (a striped sun, glittering sea, palm trees) and
+  *Aurora* (northern lights rippling over mountains and a lake). The motion is palette cycling, a few dozen
+  bytes per frame.
+- **Every .RIP file in your file libraries** that the caller may download. To add art, upload .RIP files to a
+  library (for example RIPscrip Art & Icons), or copy them into its folder and use Scan Folders. Title, artist
+  and group come from the file's SAUCE record (the info block 1990s art tools added), otherwise from the file
+  name and uploader.
+- Viewing: click a picture in the list. Then click or press Space/N for the next one, P for the previous one,
+  and Q or Esc to go back to the list.
+- Uploaded pictures are cleaned before they're shown: commands that would make the terminal type to the board,
+  ask about files or start a transfer are removed, and clickable areas are cleared. A picture can only draw.
+- Where to find classic RIP art: the 1990s artpacks (ACiD, iCE and others) archived at **16colo.rs**. That art
+  belongs to its artists, so add what you like to your own board; RipScout itself doesn't ship it.
+
 ## Texts: the board's own messages
 
 Every message the board says to callers in its own words can be changed: the login prompt and login errors,
