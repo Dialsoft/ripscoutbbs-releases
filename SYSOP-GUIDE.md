@@ -282,8 +282,16 @@ New versions of RipscoutBBS are published on its download page on GitHub (`Dials
 every version newer than yours, newest first, so you can read exactly what an update brings before installing.
 If you skip versions, the notes of all of them are there.
 
-- **Install Now** installs the downloaded version: everyone online gets a 30-second warning pop-up, then the
-  board restarts. It offers What's New first.
+- **Install Now** installs the downloaded version. It offers What's New first. Everyone online gets the
+  **caller notice** (below) as a notification on whatever screen they're on. When the warning time is up, they
+  see "Installing version ... now. Please call back in a minute!" and are disconnected while the board restarts.
+- **Caller notice** (Sysop Admin > Updates > Caller Notice, or the *Caller notice* box on the Control Panel's
+  Updates tab): the message callers get before an update, and the **warning time** (5-600 seconds, default 30).
+  The default message is *"The BBS is installing new version {version}. You'll be disconnected in {seconds}
+  seconds - please call back in a minute!"*. In your own message, `{version}` becomes the new version,
+  `{seconds}` the warning time, `{board}` your BBS name and `{current}` the version running now. Both screens
+  show exactly what callers will see. Changes apply from the next update on, with no restart. **Use Default**
+  goes back to the built-in message.
 - A download that doesn't match its checksum is thrown away and never run (and recorded in the audit trail).
 - During an update, the old EXE is briefly kept as `RipscoutBBS.old.exe` and then deleted automatically.
 - **How the switch-over works:** the old copy starts the new one and quits. The new copy waits for the old
