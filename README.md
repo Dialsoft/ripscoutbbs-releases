@@ -13,8 +13,12 @@ Admin system. It's built to show off RIPscrip as far as it goes, and made for
 
 ## Download
 
-Get **RipscoutBBS.exe** from the [latest release](https://github.com/Dialsoft/ripscoutbbs-releases/releases/latest).
-It's one Windows EXE (about 8.5 MB) with nothing to install.
+From the [latest release](https://github.com/Dialsoft/ripscoutbbs-releases/releases/latest):
+
+- **RipscoutBBS-Setup.exe** (recommended): installs to `C:\RipScoutBBS` (or any folder you choose), adds the
+  Windows Firewall rule and Start menu shortcuts, and can start the board with Windows. Everything the board
+  uses stays in that one folder, so moving to another PC is a folder copy.
+- **RipscoutBBS.exe**: the board on its own, no installer. Put it in a folder and run it.
 
 ## Features
 
@@ -44,6 +48,8 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Linked Teleconference**: link boards into one chat room, with line numbers and private messages across boards
 - **Tray icon and Control Panel**: no console window. The tray icon opens a Control Panel with live stats, callers, users, settings and the log
 - **BMX Newsmap**: BMX news as a RIP treemap, with a **QR code** on every story to open it on your phone
+- **Internet Check** on the Control Panel's Dashboard: tests the board from outside, the way a caller would, and shows a big green "All tests good - live on the internet" (or what's wrong and how to fix it)
+- **Classic RIP art pack**: one click adds 88 RIPscrip pictures from the 1990s art groups to the RIP Art Gallery
 - **Updates on your terms**: Ask me first (the default: download, verify, notify, show what changes, install when you say), Automatic, or Off
 
 | | |

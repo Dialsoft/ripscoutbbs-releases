@@ -9,8 +9,31 @@ showcase board, BMX BBS, uses the BMX pack; the **Generic** pack is the recommen
 
 ## 1. Installing
 
-1. Make a folder such as `C:\RipscoutBBS` and put `RipscoutBBS.exe` in it.
-2. Double-click `RipscoutBBS.exe`. There is no console window. Instead:
+**The easy way: the installer.** Download `RipscoutBBS-Setup.exe` from the latest release and run it.
+- It installs into **`C:\RipScoutBBS`** (recommended), or any folder you pick. Avoid Program Files: the board
+  saves its data in its own folder.
+- Options: a **Windows Firewall rule** (recommended: lets callers in), a **desktop shortcut**, and **start the
+  board when Windows starts**.
+- It also adds Start Menu shortcuts (the board, the Sysop Guide, the board folder and Uninstall) and an entry in
+  Windows' Add or Remove Programs.
+- Running it again over an existing board **upgrades** it. A running board is asked to shut down cleanly first,
+  and its data is never touched.
+- **Uninstalling** removes the program, shortcuts and firewall rule, then asks before deleting the board's data.
+  The default is to keep it.
+- Windows may show "Windows protected your PC" for a new program: click **More info > Run anyway**.
+
+**Or by hand:** make a folder such as `C:\RipScoutBBS` and put `RipscoutBBS.exe` in it.
+
+### Everything in one folder (moving to another PC)
+The board keeps **all** of its data (settings, members, messages, files, high scores, logs) in the
+`RipscoutBBS-data` folder next to `RipscoutBBS.exe`, and stores no full paths anywhere. So:
+- **Back up** the board by copying its folder (`C:\RipScoutBBS`).
+- **Move it to another PC**: shut it down (tray icon > Shut Down), copy the whole folder to the new PC, then run
+  the installer there and pick that folder (or just start the EXE in it). Everything comes back as it was. Run the
+  Internet Check afterward: the new PC needs its own firewall rule and router port forward.
+
+### Running it
+1. Double-click `RipscoutBBS.exe` (or its shortcut). There is no console window. Instead:
    - the **wheel icon** appears in the system tray, next to the clock (Windows may tuck it under the ^ arrow:
      drag it onto the taskbar to keep it visible). Hover over it to see how many callers are online.
    - the **Control Panel** window opens.
@@ -84,9 +107,31 @@ with "Run whether user is logged on or not" selected. Set "Start in" to `C:\Rips
 
 ## 2. Letting callers in
 
-1. **Windows Firewall.** Open Command Prompt **as Administrator** and run:
-   `netsh advfirewall firewall add rule name="RipscoutBBS" dir=in action=allow protocol=TCP localport=23`
-   (Use your port number if you change it.)
+### Internet Check: are you live?
+The top of the Control Panel's **Dashboard** says whether callers on the internet can reach the board: a big
+green **"All tests good - live on the internet"**, or a red **"Needs attention"** with what to fix. The tray
+icon's tooltip shows it too. The tests:
+
+| Test | What it checks |
+|---|---|
+| Answering calls | The board is listening on its telnet port |
+| Windows Firewall | An inbound rule lets callers reach RipscoutBBS.exe. If not, **Fix Firewall** adds one (Windows asks you to approve) |
+| Internet connection | This PC is online, and its public address |
+| Reachable from the internet | An outside checker calls your public address on the telnet port |
+| It's your board answering | That call reached **this** board (it says a one-time code and the board answers with its name), not another device your router forwards to |
+| Chat link / Finger port | Those ports are reachable too, when you use them |
+| Host name | When you've entered a **Public host name** (Settings), it points at this board |
+
+Each failed test says how to fix it, including your PC's local address for the router's port-forward page. The
+check runs 20 seconds after the board starts, every 6 hours, after you change ports in Settings, and when you
+press **Run Check**. The checker's test calls are never counted as callers.
+
+The outside checker is a small Dialsoft service. It only ever calls back the address that asked it, so it
+can't be used to probe anyone else's computer.
+
+
+1. **Windows Firewall.** The installer adds the rule. Without the installer, press **Fix Firewall** in the
+   Internet Check, which adds the same rule for RipscoutBBS.exe on any port.
 2. **From the internet:** if the PC is behind a router, forward TCP port 23 to the PC's local address.
    If the server already has a public IP, the firewall rule is all you need.
 3. Some internet providers block port 23. If outside callers can't connect, switch to another port such as
@@ -150,6 +195,7 @@ Click a row (or press its letter) to change it.
 | Allow new signups | When OFF, the welcome screen shows "Signups Closed" |
 | Require email at signup | When OFF, email is optional |
 | Two-factor sign-in | Who must use an authenticator app (Optional / Required for sysops / Required for everyone), and the name callers see for this board in the app (blank = the BBS name; changes apply to new setups only) |
+| Menu button lettering | How the words on menu buttons are drawn: **Crisp** (the sharp screen font, easiest to read, the default) or **Classic** (thin drawn letters with a shadow, the look before 2.7.0). Control Panel > Settings; live |
 | Finger server port | 79 is standard; 0 turns finger off. See *Finger* below |
 | Theme pack | How the board looks: Generic or BMX, with a preview of each. See *Theme packs* above |
 
@@ -502,8 +548,27 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
   and Q or Esc to go back to the list.
 - Uploaded pictures are cleaned before they're shown: commands that would make the terminal type to the board,
   ask about files or start a transfer are removed, and clickable areas are cleared. A picture can only draw.
-- Where to find classic RIP art: the 1990s artpacks (ACiD, iCE and others) archived at **16colo.rs**. That art
-  belongs to its artists, so add what you like to your own board; RipScout itself doesn't ship it.
+- The same picture in two libraries (same file name and size) is listed once.
+
+### The classic RIP art pack (one click)
+
+Control Panel > **Files** > **Add the classic RIP art pack** (also a checkbox in the first-run setup) adds 88
+classic RIPscrip pictures from the 1990s art groups (ACiD, iCE, Fire and others) to a new file library called
+**Classic RIP Art**. Each gets a description like *Negative Infinity by Wildcat (ACiD Productions, 1996)*.
+They appear in the Art Gallery right away, and members can download them.
+
+- The art belongs to its artists, so it isn't inside RipScout. When you press the button the board fetches
+  each file from the **16colo.rs** art archive, one at a time with a short pause (about 3.3 MB, a minute or so).
+  A bar shows progress.
+- Every file is checked against a fingerprint (SHA-256) that RipScout carries, so only the genuine file is
+  ever added. A damaged or changed file is refused.
+- Press it again any time: pictures already there are skipped, so it only fills in what's missing (for
+  example after an internet hiccup, or if you deleted some).
+- Only the sysop and co-sysops can upload to the Classic RIP Art library. Move or delete pieces like any
+  other file.
+- Every member can open the gallery, so pieces with slurs, profanity or nudity are left out of the pack (7 of
+  the originals). You can still add any art you like by hand, like any other file.
+- For more, browse the 1990s artpacks at 16colo.rs and add what you like to your own board.
 
 ## Texts: the board's own messages
 

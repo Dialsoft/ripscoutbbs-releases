@@ -22,8 +22,8 @@ jobs:
           # The checksum file lets running BBSes verify an update before installing it.
           sha256sum download/RipscoutBBS.exe | cut -d' ' -f1 > RipscoutBBS.exe.sha256
           if gh release view "$V" >/dev/null 2>&1; then
-            gh release upload "$V" download/RipscoutBBS.exe RipscoutBBS.exe.sha256 download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md --clobber
+            gh release upload "$V" download/RipscoutBBS.exe RipscoutBBS.exe.sha256 $(ls download/RipscoutBBS-Setup.exe 2>/dev/null) download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md --clobber
           else
-            gh release create "$V" download/RipscoutBBS.exe RipscoutBBS.exe.sha256 download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md \
-              --title "RipscoutBBS ${V#v}" --notes-file download/RELEASE-NOTES.md --latest
+            gh release create "$V" download/RipscoutBBS.exe RipscoutBBS.exe.sha256 $(ls download/RipscoutBBS-Setup.exe 2>/dev/null) download/RipscoutBBS-Explainer.mp4 SYSOP-GUIDE.md \
+              --title "RipScout BBS ${V#v}" --notes-file download/RELEASE-NOTES.md --latest
           fi
