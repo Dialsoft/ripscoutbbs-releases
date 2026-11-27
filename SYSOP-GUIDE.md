@@ -299,6 +299,9 @@ If you skip versions, the notes of all of them are there.
   new copy closes it, so you never end up with two boards running. The log says which happened ("the old copy
   exited normally" or "...did not exit within 15 seconds, so it was closed"), then "Update finished: now
   running version X".
+- **If the Control Panel had to move** (updating from version 2.1.0 or older, which didn't remember the panel's
+  address), the new version opens a fresh Control Panel window by itself. Close the old one that says "BBS not
+  responding".
 - **The Control Panel stays open through an update.** It keeps the same address, so while the board
   restarts it shows *Not responding - restarting? Reconnecting...*, then picks up by itself and says
   *Update finished: now running version X*. No need to reopen it.
