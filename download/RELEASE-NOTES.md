@@ -1,5 +1,5 @@
-**RipScout BBS 2.6.1: Animated card dragging in Solitaire**
+**RipScout BBS 2.6.2: Art Gallery fix**
 
-- **Solitaire tells DialComm** which cards can be dragged and where they can go. In **DialComm 1.9.6** or newer, a dragged card (with any cards on top of it) follows the mouse as a see-through ghost, and the pile you're hovering over turns gray.
-- **Other terminals are unaffected:** they ignore the extra information and still click to move.
-- Nothing else changed.
+- **Fixed:** opening the Art Gallery from the welcome screen, before logging in, disconnected the caller. It now shows the built-in pieces, plus a note that the board's own RIP art appears after logging in.
+- If a caller's session ever hits an error, the log now records exactly where it happened, so it can be fixed quickly. The board itself keeps running for everyone else, as before.
+- Includes 2.6.1: animated card dragging in Solitaire with DialComm 1.9.6.
