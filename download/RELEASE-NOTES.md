@@ -1,8 +1,7 @@
-**RipscoutBBS 2.1.0: A new welcome screen**
+**RipscoutBBS 2.1.1: Updates that switch over cleanly**
 
-- **A whole BMX bike instead of a lone wheel.** The welcome screen now shows a 1980s BMX race bike standing on the horizon: a neon frame, riser bars, a padded seat, chainring and cranks, and **two 5-spoke mag wheels that both spin**.
-  - The spinning still costs almost nothing: the wheels are drawn once, and only their palette colors change (about 60 bytes per frame, so it is smooth even on a slow connection).
-  - The frame glows in the same pulsing color as the RIPSCOUT title.
-  - "BMX" and "BBS" now sit on either side of the title, so nothing overlaps the bike.
-- Also includes the 2.0.1 Control Panel fixes (BMX News and Log tabs).
+- **No more two copies running after an update.** The new version now waits for the old one to quit before it opens the telnet port. If the old copy is still running after 15 seconds, the new one closes it. This also works when updating *from* an older version.
+- **The Control Panel stays open through an update.** It keeps the same address, so during the restart it shows "Restarting? Reconnecting...", then carries on by itself and says "Update finished: now running version X". No need to reopen it.
+- **Install Now always installs the newest version.** Before, if a newer release came out after one was already downloaded, the board could install the older download. Now the older download is thrown away and the newest is fetched.
+- The log and the audit trail say exactly what happened during each update.
 - Nothing else changed. Your settings, users and messages are untouched.

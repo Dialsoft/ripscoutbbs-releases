@@ -250,6 +250,16 @@ If you skip versions, the notes of all of them are there.
   board restarts. It offers What's New first.
 - A download that doesn't match its checksum is thrown away and never run (and recorded in the audit trail).
 - During an update, the old EXE is briefly kept as `RipscoutBBS.old.exe` and then deleted automatically.
+- **How the switch-over works:** the old copy starts the new one and quits. The new copy waits for the old
+  one to be gone before it opens the telnet port. If the old copy is still running after 15 seconds, the
+  new copy closes it, so you never end up with two boards running. The log says which happened ("the old copy
+  exited normally" or "...did not exit within 15 seconds, so it was closed"), then "Update finished: now
+  running version X".
+- **The Control Panel stays open through an update.** It keeps the same address, so while the board
+  restarts it shows *Not responding - restarting? Reconnecting...*, then picks up by itself and says
+  *Update finished: now running version X*. No need to reopen it.
+- If a newer version comes out after one was already downloaded, the older download is thrown away and the
+  newest one is fetched, so Install Now always installs the latest.
 - Boards updated from 1.9 or older start on **Ask me first**, whatever they had before.
 
 ### Content Editor
