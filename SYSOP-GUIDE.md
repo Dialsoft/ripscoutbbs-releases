@@ -475,6 +475,23 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
 - Each game keeps a top-10 high score table, shown on the games screen. Q or Esc quits a game (Esc in
   Word Wheelie and Solitaire, where Q is a letter or a key you might want).
 
+## Texts: the board's own messages
+
+Every message the board says to callers in its own words can be changed: the login prompt and login errors,
+the "Welcome back" title, the new-member welcome, the goodbye screen, the disconnected-by-sysop, idle-timeout
+and lines-busy messages, what callers without RIPscrip are told, the Teleconference join and leave lines,
+everyday confirmations (page sent, message posted, upload received, file missing) and the last "Installing
+version ... now" message during an update.
+
+- **Where:** the Control Panel's **Texts** tab (edit a box and click away: saved), or in RIP
+  **Sysop Admin > News & Rules > Texts** (click a message, then Edit). Changed messages are marked.
+- **Fill-ins:** `{board}` the BBS name, `{sysop}` your name, `{name}` the caller's name, `{node}` their line,
+  plus extras listed under some messages (for example `{level}`, `{line}`, `{version}`, `{minutes}`).
+- **Live:** callers see the change from their next screen on. **Built-in** (or an empty box) puts the original
+  back. Each message has a length limit so it still fits on its screen; long titles are drawn smaller.
+- System News and Board Rules are on the Settings tab, and the warning before an update is the Caller notice
+  on the Updates tab. Every change is recorded in the audit trail.
+
 ## 13. Newsmap
 
 **Newsmap** on the main menu (**BMX Newsmap** with the BMX pack) shows current news as a treemap. Each story is

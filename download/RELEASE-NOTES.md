@@ -1,5 +1,7 @@
-**RipScout BBS 2.3.1: Updating from older versions**
+**RipScout BBS 2.4.0: The board's messages are yours to change**
 
-- **Updating from 2.1.0 or older no longer leaves you with what looks like a dead board.** Those versions start the new copy without saying which copy it replaces, and the way the new copy looked for the old one could miss it. It now finds every other running RipScout and makes sure it's gone (closing it if it hasn't quit within 15 seconds), so only one board is left running.
-- **A fresh Control Panel opens after such an update.** Older versions didn't remember the Control Panel's address, so the new copy came up on a different one and your open panel just said "BBS not responding". When that happens now, the new version opens a new panel window by itself. Close the old one.
-- Updates from 2.1.1 and newer already worked this way. Nothing else changed.
+- **26 messages are now editable:** the login prompt and login errors, the "Welcome back" title, the new-member and first-sysop welcomes, the goodbye screen, disconnected-by-sysop, idle timeout, all-lines-busy, what callers without RIPscrip are told, the Teleconference join and leave lines, page sent, message posted, upload received, file missing, and the last "Installing version ... now" message during an update.
+- **Where to change them:** the new **Texts** tab in the Control Panel (edit and click away), or **Sysop Admin > News & Rules > Texts** in RIP, where you can see what each one is for, its built-in text and exactly what callers will see.
+- **Fill-ins:** `{board}`, `{sysop}`, `{name}`, `{node}`, plus extras like `{level}`, `{line}`, `{minutes}` and `{version}` where they make sense.
+- **Live, with a way back:** callers see a change from their next screen on, and **Built-in** restores the original. Every change goes in the audit trail.
+- Callers without RIPscrip now see your board's name and tagline at the top of their screen (it used to always say RipscoutBBS).

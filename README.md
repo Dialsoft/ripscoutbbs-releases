@@ -27,6 +27,7 @@ It's one Windows EXE (about 8.5 MB) with nothing to install.
 - **Every setting takes effect live, with no restart**, including the telnet port
 - Six color themes each caller can choose
 - **Theme packs**: choose how your board looks during setup and switch any time, live. **Generic** (recommended: a turning globe in a ring of chasing lights, with tech and retro-computing news) or **BMX** (a neon BMX race bike with spinning mag wheels, with BMX news). Every pack has the same menus, games and features
+- **Your words**: 26 of the board's own messages (login, goodbye, idle timeout, lines busy, Teleconference join/leave and more) can be changed in the Control Panel's Texts tab or Sysop Admin, live, with fill-ins like {name} and {board}
 - **First-run setup** in the Control Panel: board name, sysop, location, tagline, port and theme pack in one screen
 - **Games**: *Dirt Jumper* (side-scroller), *Cone Blaster* (shooter), *Spoke Breaker* (brick breaker), *Block Drop* (falling blocks), *Turbo Lap* (3-D arcade road racer), *Word Wheelie* (word game with Word Duels) and *Solitaire*, with high score tables
 - **Email** between members, and **notifications on any screen** for new mail, game invites, pages and broadcasts. Click one to open it
