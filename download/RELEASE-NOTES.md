@@ -1,6 +1,8 @@
-**RipScout BBS 2.11.0: Update progress everywhere, and drag and drop files**
+**RipScout BBS 2.12.0: Member avatars**
 
-- **Update progress in the Control Panel**, from the moment you press **Check now** or **Install now**: checking GitHub, downloading (percent and MB), checking the checksum, the countdown while callers are warned, installing, then **restarting**. The bar stays up while the board is down, the page reloads itself when the new version answers, and the bar turns green: "Update finished: now running version ...".
-- **Tray icon:** hover to see the update's step and percentage; a balloon pops up when an update starts downloading and when it's about to install.
-- **Sysop Admin > Updates** in RIP: Check Now shows a moving progress bar while the download runs.
-- **Drag and drop with DialComm (1.9.15 and later):** drop files from Windows onto a file library's list to upload them there (no file picker; several at once), and drag a file's row out of the DialComm window to download it (its folder opens when it arrives).
+- **Every member has an avatar**, a little 16-color picture beside their name in Who's Online, the Member List, every message header, and the Control Panel's Users tab.
+- **To start with, everyone gets a pattern made from their name**, so no two members look alike. **Your Settings > Avatar** shows it big; **Shuffle** picks a different pattern.
+- **Upload Picture:** send a PNG, JPEG or GIF (up to 5 MB) and the board crops it square and paints it in the 16 RIP colors. In DialComm you can just drag a picture onto the Avatar screen. **Use Pattern** goes back to the name pattern.
+- **Control Panel > Users** shows each avatar. **Remove picture** takes down an unsuitable upload (the member gets their pattern back). Uploads and removals go in the Audit trail.
+- Message headers now show a shorter date ("Thu, Nov 26, 2026 at 9:10 AM") so the subject has room beside the avatar.
+- The Sysop Guide has a new Avatars section, and the explainer video covers the new features from 2.9 to 2.12.

@@ -641,6 +641,21 @@ If the picture doesn't come: check the address works in a web browser on the boa
 and password are right, and (MOBOTIX) that the camera allows the user to see the live image. The status line
 next to Test says what went wrong.
 
+## Avatars
+
+Every member has an avatar: a little 16-color picture shown beside their name in **Who's Online**, the
+**Member List**, every **message header**, and the Control Panel's **Users** tab.
+
+- **Start:** each member automatically gets a symmetric pattern made from their name, so no two look alike.
+- **Your Settings > Avatar:** see it big, **Shuffle** for a different pattern, or **Upload Picture** (PNG,
+  JPEG or GIF, up to 5 MB, by Zmodem). In DialComm members can simply drag a picture onto the Avatar screen.
+  The board crops the middle square, shrinks it to 32 x 24 RIP pixels (square on screen) and paints it in the
+  16 colors. **Use Pattern** goes back to the name pattern.
+- **Control Panel > Users:** each avatar is shown; **Remove picture** takes down an unsuitable upload (the
+  member gets their pattern back and can upload another). Uploads and removals are in the Audit trail.
+
+Avatars are stored in `users.json` with the member, so they need no extra files or backups.
+
 ## Caller locations
 
 The board works out roughly where each call comes from, using the caller's internet address. Only you see it:
