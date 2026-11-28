@@ -614,6 +614,36 @@ If the picture doesn't come: check the address works in a web browser on the boa
 and password are right, and (MOBOTIX) that the camera allows the user to see the live image. The status line
 next to Test says what went wrong.
 
+## Caller locations
+
+The board works out roughly where each call comes from, using the caller's internet address. Only you see it:
+
+- **Log:** `Node 2: call from 203.0.113.9 (Wharton, New Jersey, US)`.
+- **Dashboard > Callers online:** a *Calling from* column.
+- **Users:** *Last called from* for every member (hover for the address).
+- **Audit:** a *Where* column on every entry with an address (and in the CSV export). A member logging in
+  from a country they have never called from before gets a **security** entry ("Logged in from a new
+  country"), which can mean someone else has their password.
+- **Sysop Admin > Nodes** in RIP: *Calling from* next to each caller's address.
+
+Each new address is sent once to a free IP-location service (ip-api.com, or ipwho.is as a backup) and the
+answer is kept for 30 days in `geo.json`. Addresses on your own network show as *Local network* and are never
+sent anywhere. Locations are approximate: usually the city or the provider's nearest hub, and a VPN shows the
+VPN's location. Turn it off with **Settings > Caller locations > Off** (live).
+
+## Finger
+
+**Server.** The board answers finger (RFC 1288) on port 79, set in Settings (0 turns it off; live):
+`finger @yourbbs.com` lists who is online, `finger name@yourbbs.com` describes one member (level, location,
+member since, calls, posts, last call, unread mail, and their plan), and `/W` (verbose) is accepted. Requests
+to forward a query to another host (`name@host@yourbbs.com`) are politely refused, as the RFC recommends.
+Replies never include email or IP addresses, are cleaned of control characters, and end every line with CRLF.
+
+**Client.** **Finger** on the Main Menu lets callers finger anywhere on the internet: `@host` (who's on),
+`name@host`, `/W name@host`, a member's name (this board), or nothing (who's on here). **This board** shows
+who's online here. Long answers scroll with Up/Down and PgUp/PgDn. Finger always uses port 79, and only you and
+co-sysops may finger addresses on the board's own network. Every query is written to the Log.
+
 ## Texts: the board's own messages
 
 Every message the board says to callers in its own words can be changed: the login prompt and login errors,
