@@ -105,6 +105,12 @@ the board remembers is in that folder (see section 14). To back up the board, co
 The simplest way is Task Scheduler: create a task that runs `C:\RipscoutBBS\RipscoutBBS.exe` **At startup**,
 with "Run whether user is logged on or not" selected. Set "Start in" to `C:\RipscoutBBS`.
 
+### Update progress
+
+While an update is under way, a progress bar runs across the top of the Control Panel on every tab: the
+download (percent and MB), the checksum check, the countdown while callers are warned, installing, and
+restarting. When the board comes back as the new version, the Control Panel reloads itself.
+
 ## 2. Letting callers in
 
 ### Internet Check: are you live?
