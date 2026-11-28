@@ -107,9 +107,15 @@ with "Run whether user is logged on or not" selected. Set "Start in" to `C:\Rips
 
 ### Update progress
 
-While an update is under way, a progress bar runs across the top of the Control Panel on every tab: the
-download (percent and MB), the checksum check, the countdown while callers are warned, installing, and
-restarting. When the board comes back as the new version, the Control Panel reloads itself.
+You can always see where an update is:
+
+- **Control Panel:** a progress bar across the top, on every tab, from the moment you press Check now or
+  Install now: checking GitHub, downloading (percent and MB), checking the download's checksum, the countdown
+  while callers are warned, installing, and restarting. When the board comes back as the new version, the
+  page reloads itself and the bar turns green: "Update finished: now running version ...".
+- **Tray icon:** hover over it to see the same step and percentage; a balloon pops up when an update starts
+  downloading and when it's about to install.
+- **Sysop Admin > Updates** in RIP: Check Now shows a moving progress bar while the download runs.
 
 ## 2. Letting callers in
 
@@ -567,6 +573,15 @@ From the main menu, **Games** (**BMX Games** with the BMX pack) offers seven gam
 - Uploaded pictures are cleaned before they're shown: commands that would make the terminal type to the board,
   ask about files or start a transfer are removed, and clickable areas are cleared. A picture can only draw.
 - The same picture in two libraries (same file name and size) is listed once.
+
+### Drag and drop (with DialComm)
+
+In a file library's list, callers using DialComm can **drop files** from Windows Explorer or their desktop onto
+the list to upload them (the list grays while they hover; no file picker, several files at once is fine; they
+get "(no description yet)" and the uploader can describe them from each file's page), and **drag a file's row
+out of the DialComm window** to download it (the folder it lands in opens with the file selected). Other RIP
+terminals simply don't offer it; Download and Upload buttons work everywhere. You can also drag files into
+the Control Panel's Files tab.
 
 ### Input boxes
 
