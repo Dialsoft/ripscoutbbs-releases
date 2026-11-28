@@ -578,6 +578,36 @@ They appear in the Art Gallery right away, and members can download them.
   the originals). You can still add any art you like by hand, like any other file.
 - For more, browse the 1990s artpacks at 16colo.rs and add what you like to your own board.
 
+## Live Camera
+
+Show a network camera to callers as **live RIPscrip video**. Set it up on the Control Panel's **Camera** tab;
+while it's turned on, **Live Camera** appears on the Main Menu for members allowed to watch.
+
+| Setting | What it does |
+|---|---|
+| Turned on | Shows Live Camera on the Main Menu. Turning it off takes it off the menu and returns anyone watching to the menu. |
+| Name | Shown at the top of the screen, e.g. "BMX track". |
+| Camera type | **MOBOTIX** (Q24, M24, Q25, M16 ...: the board asks for `/control/faststream.jpg`), **Axis** (`/axis-cgi/mjpg/video.cgi`), or **Other camera**: paste its MJPEG address or a snapshot address (a still picture fetched again and again). |
+| Camera address | The camera's IP address or name, as you type it into a browser (add `:port` if it isn't 80). |
+| User name / Password | The camera's login. Basic and Digest logins both work. Best: a camera user that can only view (MOBOTIX: Admin Menu > Users and Passwords, group "guests"). The password stays in the board's settings file and is never shown on the Control Panel. |
+| Who can watch | The lowest member level that sees it (every member, validated, trusted, co-sysops, or only you). |
+| Picture | **Standard** (blocks of 4 x 3 pixels, about 50-150 KB a second) or **Sharp** (2 x 2, about 3 times the detail and data). Callers can switch with **S** while watching. |
+| Frames a second | The most pictures a second taken from the camera (1-15, default 8). Slow connections get fewer automatically. |
+
+Press **Test** to connect for 30 seconds and see a preview of exactly what callers will see. All settings are
+live.
+
+How it works: the board talks to the camera only while someone is watching, and everyone shares that one
+connection. Every few seconds it picks the best 14 of the EGA's 64 colors for the scene (black and white stay
+for the screen's text) and only switches when the new set is clearly better. Each frame is dithered with a
+steady pattern and only the parts of the picture that changed are sent, so a still scene costs almost nothing.
+Callers press **Q** (or Esc) to leave. Watching counts as activity (the idle timer doesn't hang up on them),
+and every viewer is logged in the Audit tab.
+
+If the picture doesn't come: check the address works in a web browser on the board's PC, that the user name
+and password are right, and (MOBOTIX) that the camera allows the user to see the live image. The status line
+next to Test says what went wrong.
+
 ## Texts: the board's own messages
 
 Every message the board says to callers in its own words can be changed: the login prompt and login errors,
