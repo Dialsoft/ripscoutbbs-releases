@@ -393,9 +393,21 @@ Link your Teleconference with other boards running RipscoutBBS, so callers on al
 3. Both boards keep trying to connect every 30 seconds. The list shows **LINKED** when it's up, and the
    Control Panel dashboard shows it too.
 
-In Teleconference, the room list shows everyone with a **line number**: `03` is a caller here, `A07` is line
-7 on linked board A (the first link in your list), `B02` on board B, and so on. To send a private message,
-**click a name** for a pop-up, or type `/03 message` or `/A07 message`. It arrives as a pop-up on the other
+**Line tags, STS style.** Every chat line starts with the speaker's tag:
+
+    72#4[T1]:MaxMouse) hello everybody
+    72#2<T1>:Marc) welcome!
+
+`72` is the board's **station number** (Control Panel > Settings > *Station number*), `#4` the caller's line,
+and `T1` the channel. The brackets show rank: `< >` for the sysop and co-sysops, `[ ]` for members. Callers on
+linked boards show their own board's station number (`12#1[T1]:Bob)`), so give every board on a link network
+its own number. A linked board running a version before 2.10 shows as a letter instead (`A07`).
+
+**Channels.** Everyone starts on channel T1. `/T2` tunes to channel 2 (1-99); each channel is its own room,
+across linked boards too. `/T` says which channel you're on, and `/who` lists everyone on every channel.
+
+**Private messages.** Click a name in the room list for a pop-up, or type `/#4 message` (line 4 here),
+`/72#4 message` (line 4 on station 72) or the older `/A07 message`. It arrives as a pop-up on the other
 caller's screen.
 
 Security: the password never crosses the network (each side proves it knows the password with an HMAC

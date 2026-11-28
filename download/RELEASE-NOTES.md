@@ -1,8 +1,7 @@
-**RipScout BBS 2.9.0: Caller locations and Finger**
+**RipScout BBS 2.10.0: STS-style Teleconference**
 
-- **Caller locations** (only you see them): where each call comes from, worked out from the caller's internet address.
-  - In the **Log** ("call from 203.0.113.9 (Wharton, New Jersey, US)"), the Dashboard's **Callers online**, **Users** (*Last called from*), **Audit** (a *Where* column, also in the CSV export) and **Sysop Admin > Nodes** in RIP.
-  - A member logging in from a **country they've never called from** gets a security entry in the Audit trail.
-  - Each new address is looked up once (ip-api.com, ipwho.is as a backup) and remembered for 30 days. Addresses on your own network are never sent. Turn it off in Settings > **Caller locations**.
-- **Finger app** on the Main Menu: callers can finger anywhere on the internet (`@host`, `name@host`, `/W`), a member of this board, or see who's on here. Long answers scroll. It always uses port 79, and only staff may finger addresses on the board's own network.
-- **Finger server** (RFC 1288, port 79): replies are now cleaned of control characters and every line ends with CRLF, as the RFC asks; forwarding requests are politely refused.
+- **Line tags, STS style:** every chat line starts with the speaker's tag, `72#4[T1]:MaxMouse) hello`: the board's **station number**, `#` the caller's line, and the channel in brackets. `< >` marks the sysop and co-sysops, `[ ]` members.
+- **Station number:** a new setting (Control Panel > Settings). Callers on linked boards show their own board's station number, so give every board on a link network its own number.
+- **Channels:** everyone starts on T1; `/T2` tunes to channel 2 (1-99). Each channel is its own room, across linked boards too. `/T` shows your channel and `/who` lists everyone on every channel.
+- **Private messages** by station code: `/#4 message` (line 4 here) or `/72#4 message` (line 4 on station 72). The older `/A07` still works.
+- Linked boards running an older version still chat fine; they show with a letter (A07) instead of a station number.
